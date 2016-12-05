@@ -15,13 +15,102 @@
         <header id="banner" class="body">
                 <h1><a href="shm13.github.io/">Шаманский блог </a></h1>
                 <nav><ul>
+                    <li><a href="shm13.github.io/category/veb.html">Веб</a></li>
                     <li><a href="shm13.github.io/category/zhelezo.html">Железо</a></li>
                 </ul></nav>
         </header><!-- /#banner -->
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="shm13.github.io/na-chto-sposoben-server-za-500-rublei-obzor-i-testirovanie.html">На что способен сервер за 500 рублей. Обзор и тестирование</a></h1>
+                    <h1 class="entry-title"><a href="shm13.github.io/prikruchivaem-iandeskmetriku-k-pelican-pravilno.html">Прикручиваем Яндеск.Метрику к pelican правильно.</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2016-12-05T23:00:00+03:00">
+                Published: Mon 05 December 2016
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="shm13.github.io/author/nikolai-shamanovich.html">Николай Шаманович</a>
+        </address>
+<p>In <a href="shm13.github.io/category/veb.html">Веб</a>.</p>
+<p>tags: <a href="shm13.github.io/tag/pelican.html">pelican</a> <a href="shm13.github.io/tag/howto.html">howto</a> <a href="shm13.github.io/tag/yandexmetrika.html">yandex.metrika</a> <a href="shm13.github.io/tag/web.html">web</a> <a href="shm13.github.io/tag/iandeksmetrika.html">Яндекс.Метрика</a> </p>
+</footer><!-- /.post-info --><p>Попытался найти в интернете как приделать Метрику к своему блогу,
+но находил только решения типа — приколоти на гвозди вот тут,
+и так сойдет. Короче решил разобраться и сделать все как надо.</p>
+<p>Для начала генерируем html код счетчика согласно официальной инструкции:
+<a class="reference external" href="https://yandex.ru/support/metrika/quick-start.xml">https://yandex.ru/support/metrika/quick-start.xml</a></p>
+<p>Открываем publishconf.py.
+В нем создаем новый параметр, в котором будет храниться номер вашего счетчика</p>
+<p>Например так:</p>
+<p>YANDEX_METRIKA = &quot;41353264&quot;</p>
+<p>Затем нужно доработать тему.</p>
+<p>Моя тема хранится в паке блога в themes/shmblog/ и это по сути копия
+стандартной темы.</p>
+<p>Добавляем новый шаблон <em>themes/shmblog/templates/metrika.html</em></p>
+<pre class="literal-block">
+{% if YANDEX_METRIKA %}
+&lt;!-- Yandex.Metrika counter --&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter{{YANDEX_METRIKA}} = new Ya.Metrika({
+                    id: {{YANDEX_METRIKA}},
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true
+                });
+            } catch(e) { }
+        });
+
+        var n = d.getElementsByTagName(&quot;script&quot;)[0],
+            s = d.createElement(&quot;script&quot;),
+            f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = &quot;text/javascript&quot;;
+        s.async = true;
+        s.src = &quot;https://mc.yandex.ru/metrika/watch.js&quot;;
+
+        if (w.opera == &quot;[object Opera]&quot;) {
+            d.addEventListener(&quot;DOMContentLoaded&quot;, f, false);
+        } else { f(); }
+    })(document, window, &quot;yandex_metrika_callbacks&quot;);
+&lt;/script&gt;
+&lt;noscript&gt;&lt;div&gt;&lt;img src=&quot;https://mc.yandex.ru/watch/{{YANDEX_METRIKA}}&quot; style=&quot;position:absolute; left:-9999px;&quot; alt=&quot;&quot; /&gt;&lt;/div&gt;&lt;/noscript&gt;
+&lt;!-- /Yandex.Metrika counter --&gt;
+{% endif %}
+</pre>
+<p>Это тот самый код, который нам генерирует Яндекс,
+только код счетчика заменен на {{YANDEX_METRIKA}}.</p>
+<p>Далее правим основной шаблон. <em>themes/shmblog/templates/base.html</em></p>
+<p>Дописываем куда-нибудь в конец строку:</p>
+<pre class="literal-block">
+{% include 'metrika.html' %}
+</pre>
+<p>Ну теперь все, проверяем. Запускаем сервер и генерируем сайт с продакшн
+настройками.</p>
+<pre class="literal-block">
+make publish &amp;&amp; make serve
+</pre>
+<p>Естественно локально сайт будет выглядеть криво,
+главное найти найти в конце странице наш код метрики и сравнить его с тем,
+что сгенерировал Яндекс.
+Если все верно, то можно публиковать.</p>
+<p>P.S.
+Статистика на сайте обновляется примерно раз в полчаса,
+адблоки могут блокировать работу метрики.</p>
+                </article>
+            </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="shm13.github.io/na-chto-sposoben-server-za-500-rublei-obzor-i-testirovanie.html" rel="bookmark"
+                           title="Permalink to На что способен сервер за 500 рублей. Обзор и тестирование">На что способен сервер за 500 рублей. Обзор и тестирование</a></h1>
+                </header>
+
+                <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2016-11-29T12:00:00+03:00">
                 Published: Tue 29 November 2016
@@ -32,245 +121,18 @@
         </address>
 <p>In <a href="shm13.github.io/category/zhelezo.html">Железо</a>.</p>
 <p>tags: <a href="shm13.github.io/tag/hardware.html">hardware</a> <a href="shm13.github.io/tag/retro.html">retro</a> <a href="shm13.github.io/tag/benchmark.html">benchmark</a> <a href="shm13.github.io/tag/xeon.html">xeon</a> <a href="shm13.github.io/tag/intel.html">Intel</a> <a href="shm13.github.io/tag/linux.html">Linux</a> <a href="shm13.github.io/tag/zhelezo.html">железо</a> <a href="shm13.github.io/tag/retro.html">ретро</a> <a href="shm13.github.io/tag/server.html">сервер</a> </p>
-</footer><!-- /.post-info --><p>Попался мне тут в руки один ретросервер. Приобрел я его на всеми любимом авито всего за 500 рублей.
+</footer><!-- /.post-info -->                <p>Попался мне тут в руки один ретросервер. Приобрел я его на всеми любимом авито всего за 500 рублей.
 По сути мне нужен был только корпус, все что было внутри его продавец отдал мне в качестве подарка.</p>
 <p><img alt="server_0" src="images/server_0.jpg" /></p>
-<p>Собственно за 500 рублей я получил только корпус с бекплейтом, материнку, 2 процессора, привод CD-ROM, флоппик,
-и 4 SCSI диска. Весела эта штука порядка 25 килограмм и пер я ее долго и
-упорно почти через весь город, но это не так важно...
-Притащил эту штуку домой, разобрал, почистил, снова собрал, и где-то в процессе всех этих действий у меня
-возникло дикое желание запустить данный аппарат и посмотреть на что он способен.</p>
-<p><img alt="server_3" src="images/server_3.jpg" /></p>
-<p>Недостающие компоненты были куплены на не менее любимом всеми ebay, тоже достаточно дешево,
-и вот почти через месяц приехали ко мне. Можно собирать.</p>
-<p>Конфигурация получилась такая:</p>
-<ul class="simple">
-<li>материнская плата intel se7520bd2;</li>
-<li>пара процессоров intel xeon dp2800/2mb/800;</li>
-<li>4 планки памяти неизвестного производителя DDR-266 по 2Гб, всего получилось 8Гб;</li>
-<li>4 диска Seageate Cheetah 10K.7 ST373207LC по 80 Gb каждый;</li>
-<li>блок питания Rosewill Hiwe-1000, могучий киловатник.</li>
-</ul>
-<p>С блоком питания тут явный перебор, но он предназначается совсем другому серверу.
-Также для проверки воткнул видекарту Radeon 9250 и звуковуху Sound blaster live! 5.1.</p>
-<p><img alt="server_1" src="images/server_1.jpg" /></p>
-<p>После запуска сервер начал довольно сильно шуметь вентиляторами и дисками, а рейд-контроллер
-начал пищать на все лады. Картинка на мониторе появилась только после пары минут.</p>
-<p><img alt="server_2" src="images/server_2.jpg" /></p>
-<p>Нерабочими оказались только пара дисков, я их вынул, а из оставшихся двух собрал RAID 1.
-Все остальное железо вроде бы функционирует исправно.</p>
-<p>Быстренько пробежимся по возможностям этого сервера - он умеет в PXE, Hyper-threading, EFI32, также
-у него в биое присутствует дополнительная вкладка SERVER, а также там можно посмотреть
-какие слоты памяти активны.</p>
-<p><img alt="server_4" src="images/server_4.jpg" /></p>
-<p>Попытка установить Windows XP успехом не увенчалась, при попытке установки драйвера рейда
-я стабильно вываливался в синий экран. Пользуясь случаем передаю привет MS.</p>
-<p>Debian 8 установилась по PXE без вопросов, хотя ставилась довольно долго, порядка двух часов.</p>
-<div class="section" id="id2">
-<h2>Тесты</h2>
-<div class="section" id="id3">
-<h3>Список тестов</h3>
-<ol class="arabic simple" start="0">
-<li>Тест архиватора bzip2. Архивация установочника дебиана.</li>
-<li>Тест архиватора pbzip2. Архивация установочника дебиана.</li>
-<li>Тест архиватора zpaq. Архивация установочника дебиана.</li>
-<li>Тест компиляции. Компиляция ядра Линукс на дефолтном конфиге.</li>
-<li>Тест LinPack (Intel® MKL Benchmarks).</li>
-<li>Тест sysbench память</li>
-<li>Тест sysbench процессор</li>
-<li>Тест диска hdparm -t /dev/sda</li>
-</ol>
-</div>
-<div class="section" id="id4">
-<h3>Методика тестирования</h3>
-<p>Тесты прогонял один за другим с включенным и выключенным Hyper-threading
-таким образом можно протестировать не только сам сервер, а еще и то
-полезен или вреден Hyper-threading. В тестах архивации был использован
-установочный образ debian-8.1.0-amd64-i386-netinst весом 555 Мб.</p>
-</div>
-<div class="section" id="bzip2">
-<h3>Тест архиватора bzip2. Архивация установочника дебиана.</h3>
-<p>Архивировал с параметром --fast.</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="46%" />
-<col width="54%" />
-</colgroup>
-<thead valign="bottom">
-<tr><th class="head">с Hyper-threading</th>
-<th class="head">без Hyper-threading</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr><td>192.14 сек.</td>
-<td>192.47 сек.</td>
-</tr>
-</tbody>
-</table>
-<p>Собственно Hyper-threading не влияет на bzip2 никак.</p>
-</div>
-<div class="section" id="pbzip2">
-<h3>Тест архиватора pbzip2. Архивация установочника дебиана.</h3>
-<p>Паралельная версия bzip2. Тоже --fast.</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="46%" />
-<col width="54%" />
-</colgroup>
-<thead valign="bottom">
-<tr><th class="head">с hyper-threading</th>
-<th class="head">без hyper-threading</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr><td>85.57 сек.</td>
-<td>101.74 сек.</td>
-</tr>
-</tbody>
-</table>
-<p>В этом тесте Hyper-threading оказался весьма полезным.</p>
-</div>
-<div class="section" id="zpaq">
-<h3>Тест архиватора zpaq. Архивация установочника дебиана.</h3>
-<p>Великий и могучий сжиматель. Архивировал с дефолтными параметрами.</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="46%" />
-<col width="54%" />
-</colgroup>
-<thead valign="bottom">
-<tr><th class="head">с hyper-threading</th>
-<th class="head">без hyper-threading</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr><td>4024 сек.</td>
-<td>4083 сек.</td>
-</tr>
-</tbody>
-</table>
-<p>Параллельного pzpaq в репозитории не обнаружил, но я думаю что будет то же самое что и с bzip2 pbzip2.</p>
-</div>
-<div class="section" id="id5">
-<h3>Тест компиляции. Компиляция ядра Линукс на дефолтном конфиге.</h3>
-<p>В этом тесте я также решил найти определить оптимальное количество потоков для компиляции.
-В gentoo.wiki сказано что потоков должно быть на 1 больше, чем количество ядер процессоров.</p>
-<p><img alt="bench_0" src="images/bench_0.png" /></p>
-<p>В моем случае лучшие результаты достигаются при колличестве потоко роному количеству ядер, т.е.
-4 и 2 при включенном и выключенным Hyper-threading соответственно.</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="47%" />
-<col width="53%" />
-</colgroup>
-<thead valign="bottom">
-<tr><th class="head">с hyper-threading 4 потока</th>
-<th class="head">без hyper-threading 2 потока</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr><td>1158 сек.</td>
-<td>1323 сек.</td>
-</tr>
-</tbody>
-</table>
-<p>Тут hyper-threading снова оказывается весьма полезным.</p>
-</div>
-<div class="section" id="linpack-intel-mkl-benchmarks">
-<h3>Тест LinPack (Intel® MKL Benchmarks).</h3>
-<p>Тут я прогонял только бинарный тест. Собрать из сорцов у меня не получилось, прошу меня за это простить.
-Бинраный тест запускается на двух потоках.</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="46%" />
-<col width="54%" />
-</colgroup>
-<thead valign="bottom">
-<tr><th class="head">с hyper-threading</th>
-<th class="head">без hyper-threading</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr><td>4.972 Gflops</td>
-<td>5.216 Gflops</td>
-</tr>
-</tbody>
-</table>
-<p>Этот тест показывает, что все таки Hyper-threading не всегда полезный.</p>
-</div>
-<div class="section" id="sysbench">
-<h3>Тест sysbench память</h3>
-<table border="1" class="docutils">
-<colgroup>
-<col width="46%" />
-<col width="54%" />
-</colgroup>
-<thead valign="bottom">
-<tr><th class="head">с hyper-threading</th>
-<th class="head">без hyper-threading</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr><td>1095 Mb/сек.</td>
-<td>1100 Mb/сек.</td>
-</tr>
-</tbody>
-</table>
-<p>На результаты этого теста Hyper-threading не влияет, как и количество потоков.</p>
-</div>
-<div class="section" id="id6">
-<h3>Тест sysbench процессор</h3>
-<p><img alt="bench_1" src="images/bench_0.png" /></p>
-<p>Лучшие результаты также как и в тесте с компиляцией получаются на 2 и 4 потоках.</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="47%" />
-<col width="53%" />
-</colgroup>
-<thead valign="bottom">
-<tr><th class="head">с hyper-threading 4 потока</th>
-<th class="head">без hyper-threading 2 потока</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr><td>10.4 сек.</td>
-<td>12.6 сек.</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="section" id="hdparm-t-dev-sda">
-<h3>Тест диска hdparm -t /dev/sda</h3>
-<table border="1" class="docutils">
-<colgroup>
-<col width="46%" />
-<col width="54%" />
-</colgroup>
-<thead valign="bottom">
-<tr><th class="head">с hyper-threading</th>
-<th class="head">без hyper-threading</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr><td>75.11 Mb/сек.</td>
-<td>73.8 Mb/сек.</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div class="section" id="id7">
-<h2>Заключение</h2>
-<p>Данный аппарат является очень интересной железкой и им в принципе можно пользоваться до сих пор,
-но уж больно он шумный и иногда предательски фризит, все таки годы берут свое.
-В любом случае этот сервер и результаты тестирования послужат хорошей отправной
-точкой для обзора других моих железок. Я надеюсь, что данная статья была интересной или даже полезной.</p>
-</div>
-                </article>
+<p>Собственно за 500 рублей я получил только корпус с бекплейтом, материнку, 2 процессора, привод ...</p>
+                <a class="readmore" href="shm13.github.io/na-chto-sposoben-server-za-500-rublei-obzor-i-testirovanie.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+                </ol><!-- /#posts-list -->
 <p class="paginator">
     Page 1 / 1
 </p>
-            </aside><!-- /#featured -->
+                </section><!-- /#content -->
         <section id="extras" class="body">
                 <div class="social">
                         <h2>social</h2>

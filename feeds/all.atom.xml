@@ -1,5 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Шаманский блог</title><link href="shm13.github.io/" rel="alternate"></link><link href="shm13.github.io/feeds/all.atom.xml" rel="self"></link><id>shm13.github.io/</id><updated>2016-11-29T12:00:00+03:00</updated><entry><title>На что способен сервер за 500 рублей. Обзор и тестирование</title><link href="shm13.github.io/na-chto-sposoben-server-za-500-rublei-obzor-i-testirovanie.html" rel="alternate"></link><updated>2016-11-29T12:00:00+03:00</updated><author><name>Николай Шаманович</name></author><id>tag:,2016-11-29:shm13.github.io/na-chto-sposoben-server-za-500-rublei-obzor-i-testirovanie.html</id><summary type="html">&lt;p&gt;Попался мне тут в руки один ретросервер. Приобрел я его на всеми любимом авито всего за 500 рублей.
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Шаманский блог</title><link href="shm13.github.io/" rel="alternate"></link><link href="shm13.github.io/feeds/all.atom.xml" rel="self"></link><id>shm13.github.io/</id><updated>2016-12-05T23:00:00+03:00</updated><entry><title>Прикручиваем Яндеск.Метрику к pelican правильно.</title><link href="shm13.github.io/prikruchivaem-iandeskmetriku-k-pelican-pravilno.html" rel="alternate"></link><updated>2016-12-05T23:00:00+03:00</updated><author><name>Николай Шаманович</name></author><id>tag:,2016-12-05:shm13.github.io/prikruchivaem-iandeskmetriku-k-pelican-pravilno.html</id><summary type="html">&lt;p&gt;Попытался найти в интернете как приделать Метрику к своему блогу,
+но находил только решения типа — приколоти на гвозди вот тут,
+и так сойдет. Короче решил разобраться и сделать все как надо.&lt;/p&gt;
+&lt;p&gt;Для начала генерируем html код счетчика согласно официальной инструкции:
+&lt;a class="reference external" href="https://yandex.ru/support/metrika/quick-start.xml"&gt;https://yandex.ru/support/metrika/quick-start.xml&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Открываем publishconf.py.
+В нем создаем новый параметр, в котором будет храниться номер вашего счетчика&lt;/p&gt;
+&lt;p&gt;Например так:&lt;/p&gt;
+&lt;p&gt;YANDEX_METRIKA = &amp;quot;41353264&amp;quot;&lt;/p&gt;
+&lt;p&gt;Затем нужно доработать тему.&lt;/p&gt;
+&lt;p&gt;Моя тема хранится в паке блога в themes/shmblog/ и это по сути копия
+стандартной темы.&lt;/p&gt;
+&lt;p&gt;Добавляем новый шаблон &lt;em&gt;themes/shmblog/templates/metrika.html&lt;/em&gt;&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+{% if YANDEX_METRIKA %}
+&amp;lt;!-- Yandex.Metrika counter --&amp;gt;
+&amp;lt;script type=&amp;quot;text/javascript&amp;quot;&amp;gt;
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter{{YANDEX_METRIKA}} = new Ya.Metrika({
+                    id: {{YANDEX_METRIKA}},
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true
+                });
+            } catch(e) { }
+        });
+
+        var n = d.getElementsByTagName(&amp;quot;script&amp;quot;)[0],
+            s = d.createElement(&amp;quot;script&amp;quot;),
+            f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = &amp;quot;text/javascript&amp;quot;;
+        s.async = true;
+        s.src = &amp;quot;https://mc.yandex.ru/metrika/watch.js&amp;quot;;
+
+        if (w.opera == &amp;quot;[object Opera]&amp;quot;) {
+            d.addEventListener(&amp;quot;DOMContentLoaded&amp;quot;, f, false);
+        } else { f(); }
+    })(document, window, &amp;quot;yandex_metrika_callbacks&amp;quot;);
+&amp;lt;/script&amp;gt;
+&amp;lt;noscript&amp;gt;&amp;lt;div&amp;gt;&amp;lt;img src=&amp;quot;https://mc.yandex.ru/watch/{{YANDEX_METRIKA}}&amp;quot; style=&amp;quot;position:absolute; left:-9999px;&amp;quot; alt=&amp;quot;&amp;quot; /&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;/noscript&amp;gt;
+&amp;lt;!-- /Yandex.Metrika counter --&amp;gt;
+{% endif %}
+&lt;/pre&gt;
+&lt;p&gt;Это тот самый код, который нам генерирует Яндекс,
+только код счетчика заменен на {{YANDEX_METRIKA}}.&lt;/p&gt;
+&lt;p&gt;Далее правим основной шаблон. &lt;em&gt;themes/shmblog/templates/base.html&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Дописываем куда-нибудь в конец строку:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+{% include 'metrika.html' %}
+&lt;/pre&gt;
+&lt;p&gt;Ну теперь все, проверяем. Запускаем сервер и генерируем сайт с продакшн
+настройками.&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+make publish &amp;amp;&amp;amp; make serve
+&lt;/pre&gt;
+&lt;p&gt;Естественно локально сайт будет выглядеть криво,
+главное найти найти в конце странице наш код метрики и сравнить его с тем,
+что сгенерировал Яндекс.
+Если все верно, то можно публиковать.&lt;/p&gt;
+&lt;p&gt;P.S.
+Статистика на сайте обновляется примерно раз в полчаса,
+адблоки могут блокировать работу метрики.&lt;/p&gt;
+</summary><category term="pelican"></category><category term="howto"></category><category term="yandex.metrika"></category><category term="web"></category><category term="Яндекс.Метрика"></category></entry><entry><title>На что способен сервер за 500 рублей. Обзор и тестирование</title><link href="shm13.github.io/na-chto-sposoben-server-za-500-rublei-obzor-i-testirovanie.html" rel="alternate"></link><updated>2016-11-29T12:00:00+03:00</updated><author><name>Николай Шаманович</name></author><id>tag:,2016-11-29:shm13.github.io/na-chto-sposoben-server-za-500-rublei-obzor-i-testirovanie.html</id><summary type="html">&lt;p&gt;Попался мне тут в руки один ретросервер. Приобрел я его на всеми любимом авито всего за 500 рублей.
 По сути мне нужен был только корпус, все что было внутри его продавец отдал мне в качестве подарка.&lt;/p&gt;
 &lt;p&gt;&lt;img alt="server_0" src="images/server_0.jpg" /&gt;&lt;/p&gt;
 &lt;p&gt;Собственно за 500 рублей я получил только корпус с бекплейтом, материнку, 2 процессора, привод CD-ROM, флоппик,
