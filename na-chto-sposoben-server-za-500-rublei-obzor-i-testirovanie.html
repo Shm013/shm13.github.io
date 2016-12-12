@@ -15,8 +15,7 @@
         <header id="banner" class="body">
                 <h1><a href="/">Шаманский блог </a></h1>
                 <nav><ul>
-                    <li><a href="/category/veb.html">Веб</a></li>
-                    <li class="active"><a href="/category/zhelezo.html">Железо</a></li>
+                    <li class="active"><a href="/category/blog.html">Блог</a></li>
                 </ul></nav>
         </header><!-- /#banner -->
 <section id="content" class="body">
@@ -36,17 +35,17 @@
         <address class="vcard author">
                 By                         <a class="url fn" href="/author/nikolai-shamanovich.html">Николай Шаманович</a>
         </address>
-<p>In <a href="/category/zhelezo.html">Железо</a>.</p>
+<p>In <a href="/category/blog.html">Блог</a>.</p>
 <p>tags: <a href="/tag/hardware.html">hardware</a> <a href="/tag/retro.html">retro</a> <a href="/tag/benchmark.html">benchmark</a> <a href="/tag/xeon.html">xeon</a> <a href="/tag/intel.html">Intel</a> <a href="/tag/linux.html">Linux</a> <a href="/tag/zhelezo.html">железо</a> <a href="/tag/retro.html">ретро</a> <a href="/tag/server.html">сервер</a> </p>
 </footer><!-- /.post-info -->      <p>Попался мне тут в руки один ретросервер. Приобрел я его на всеми любимом авито всего за 500 рублей.
 По сути мне нужен был только корпус, все что было внутри его продавец отдал мне в качестве подарка.</p>
-<p><img alt="server_0" src="images/server_0.jpg" /></p>
+<p><img alt="server_0" src="/images/server_0.jpg" /></p>
 <p>Собственно за 500 рублей я получил только корпус с бекплейтом, материнку, 2 процессора, привод CD-ROM, флоппик,
 и 4 SCSI диска. Весела эта штука порядка 25 килограмм и пер я ее долго и
 упорно почти через весь город, но это не так важно...
 Притащил эту штуку домой, разобрал, почистил, снова собрал, и где-то в процессе всех этих действий у меня
 возникло дикое желание запустить данный аппарат и посмотреть на что он способен.</p>
-<p><img alt="server_3" src="images/server_3.jpg" /></p>
+<p><img alt="server_3" src="/images/server_3.jpg" /></p>
 <p>Недостающие компоненты были куплены на не менее любимом всеми ebay, тоже достаточно дешево,
 и вот почти через месяц приехали ко мне. Можно собирать.</p>
 <p>Конфигурация получилась такая:</p>
@@ -59,16 +58,16 @@
 </ul>
 <p>С блоком питания тут явный перебор, но он предназначается совсем другому серверу.
 Также для проверки воткнул видекарту Radeon 9250 и звуковуху Sound blaster live! 5.1.</p>
-<p><img alt="server_1" src="images/server_1.jpg" /></p>
+<p><img alt="server_1" src="/images/server_1.jpg" /></p>
 <p>После запуска сервер начал довольно сильно шуметь вентиляторами и дисками, а рейд-контроллер
 начал пищать на все лады. Картинка на мониторе появилась только после пары минут.</p>
-<p><img alt="server_2" src="images/server_2.jpg" /></p>
+<p><img alt="server_2" src="/images/server_2.jpg" /></p>
 <p>Нерабочими оказались только пара дисков, я их вынул, а из оставшихся двух собрал RAID 1.
 Все остальное железо вроде бы функционирует исправно.</p>
 <p>Быстренько пробежимся по возможностям этого сервера - он умеет в PXE, Hyper-threading, EFI32, также
 у него в биое присутствует дополнительная вкладка SERVER, а также там можно посмотреть
 какие слоты памяти активны.</p>
-<p><img alt="server_4" src="images/server_4.jpg" /></p>
+<p><img alt="server_4" src="/images/server_4.jpg" /></p>
 <p>Попытка установить Windows XP успехом не увенчалась, при попытке установки драйвера рейда
 я стабильно вываливался в синий экран. Пользуясь случаем передаю привет MS.</p>
 <p>Debian 8 установилась по PXE без вопросов, хотя ставилась довольно долго, порядка двух часов.</p>
@@ -161,7 +160,7 @@
 <h3>Тест компиляции. Компиляция ядра Линукс на дефолтном конфиге.</h3>
 <p>В этом тесте я также решил найти определить оптимальное количество потоков для компиляции.
 В gentoo.wiki сказано что потоков должно быть на 1 больше, чем количество ядер процессоров.</p>
-<p><img alt="bench_0" src="images/bench_0.png" /></p>
+<p><img alt="bench_0" src="/images/bench_0.png" /></p>
 <p>В моем случае лучшие результаты достигаются при колличестве потоко роному количеству ядер, т.е.
 4 и 2 при включенном и выключенным Hyper-threading соответственно.</p>
 <table border="1" class="docutils">
@@ -226,7 +225,7 @@
 </div>
 <div class="section" id="id6">
 <h3>Тест sysbench процессор</h3>
-<p><img alt="bench_1" src="images/bench_0.png" /></p>
+<p><img alt="bench_1" src="/images/bench_0.png" /></p>
 <p>Лучшие результаты также как и в тесте с компиляцией получаются на 2 и 4 потоках.</p>
 <table border="1" class="docutils">
 <colgroup>

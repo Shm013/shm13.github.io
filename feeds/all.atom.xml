@@ -4,7 +4,7 @@
 а именно, то что производительность МП удваивается каждые 18 мес.
 Сравнивать я буду свой новый сервер и ретросервер, обзор и тестирование которого я делал недавно.
 Почитать про ретросервер можно &lt;a class="reference external" href="/na-chto-sposoben-server-za-500-rublei-obzor-i-testirovanie.html"&gt;тут&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="server_5" src="images/server_5.jpg" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="server_5" src="/images/server_5.jpg" /&gt;&lt;/p&gt;
 &lt;p&gt;Я считаю что эти сервера идеально подходят для того чтобы проверить закон Мура. Оба сервера являются средемощными
 для своего времени, являются так сказать лучшими по показателю цена/качество. Также у обоих машин
 явный перебор по объему памяти для моих тестов.&lt;/p&gt;
@@ -33,7 +33,7 @@
 &lt;p&gt;Плата пришла ко мне с небольшими дефектам, была немного погнута ножка на сокете и были всякие разводы,
 остатки термопасты и прочие следы эксплуатации, хотя продавец на Ибее утверждал, что плата ни разу не
 запускалась и все такое.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="server_6" src="images/server_6.jpg" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="server_6" src="/images/server_6.jpg" /&gt;&lt;/p&gt;
 &lt;p&gt;В любом случае досталась мне опять таки очень дешево и я особо не стал разбираться. Благо плата
 пришла в хорошей упаковке и в работе никаких нареканий не вызывает. Но продавцу все-равно дизлайк.&lt;/p&gt;
 &lt;div class="section" id="id3"&gt;
@@ -145,7 +145,7 @@
 &lt;/div&gt;
 &lt;div class="section" id="id5"&gt;
 &lt;h3&gt;Тест компиляции. Компиляция ядра Линукс на дефолтном конфиге.&lt;/h3&gt;
-&lt;p&gt;&lt;img alt="bench_2" src="images/bench_2.png" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="bench_2" src="/images/bench_2.png" /&gt;&lt;/p&gt;
 &lt;p&gt;Лучший результат достигается на 24 потоках с включеным Hyper-threading - 77.54 сек. Если сравнивать с лучшим результатом ретросервера,
 то получается ускорение в 14.8 раз.&lt;/p&gt;
 &lt;/div&gt;
@@ -321,13 +321,13 @@ make publish &amp;amp;&amp;amp; make serve
 адблоки могут блокировать работу метрики.&lt;/p&gt;
 </summary><category term="pelican"></category><category term="howto"></category><category term="yandex.metrika"></category><category term="web"></category><category term="Яндекс.Метрика"></category></entry><entry><title>На что способен сервер за 500 рублей. Обзор и тестирование</title><link href="/na-chto-sposoben-server-za-500-rublei-obzor-i-testirovanie.html" rel="alternate"></link><updated>2016-11-29T12:00:00+03:00</updated><author><name>Николай Шаманович</name></author><id>tag:,2016-11-29:na-chto-sposoben-server-za-500-rublei-obzor-i-testirovanie.html</id><summary type="html">&lt;p&gt;Попался мне тут в руки один ретросервер. Приобрел я его на всеми любимом авито всего за 500 рублей.
 По сути мне нужен был только корпус, все что было внутри его продавец отдал мне в качестве подарка.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="server_0" src="images/server_0.jpg" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="server_0" src="/images/server_0.jpg" /&gt;&lt;/p&gt;
 &lt;p&gt;Собственно за 500 рублей я получил только корпус с бекплейтом, материнку, 2 процессора, привод CD-ROM, флоппик,
 и 4 SCSI диска. Весела эта штука порядка 25 килограмм и пер я ее долго и
 упорно почти через весь город, но это не так важно...
 Притащил эту штуку домой, разобрал, почистил, снова собрал, и где-то в процессе всех этих действий у меня
 возникло дикое желание запустить данный аппарат и посмотреть на что он способен.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="server_3" src="images/server_3.jpg" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="server_3" src="/images/server_3.jpg" /&gt;&lt;/p&gt;
 &lt;p&gt;Недостающие компоненты были куплены на не менее любимом всеми ebay, тоже достаточно дешево,
 и вот почти через месяц приехали ко мне. Можно собирать.&lt;/p&gt;
 &lt;p&gt;Конфигурация получилась такая:&lt;/p&gt;
@@ -340,16 +340,16 @@ make publish &amp;amp;&amp;amp; make serve
 &lt;/ul&gt;
 &lt;p&gt;С блоком питания тут явный перебор, но он предназначается совсем другому серверу.
 Также для проверки воткнул видекарту Radeon 9250 и звуковуху Sound blaster live! 5.1.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="server_1" src="images/server_1.jpg" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="server_1" src="/images/server_1.jpg" /&gt;&lt;/p&gt;
 &lt;p&gt;После запуска сервер начал довольно сильно шуметь вентиляторами и дисками, а рейд-контроллер
 начал пищать на все лады. Картинка на мониторе появилась только после пары минут.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="server_2" src="images/server_2.jpg" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="server_2" src="/images/server_2.jpg" /&gt;&lt;/p&gt;
 &lt;p&gt;Нерабочими оказались только пара дисков, я их вынул, а из оставшихся двух собрал RAID 1.
 Все остальное железо вроде бы функционирует исправно.&lt;/p&gt;
 &lt;p&gt;Быстренько пробежимся по возможностям этого сервера - он умеет в PXE, Hyper-threading, EFI32, также
 у него в биое присутствует дополнительная вкладка SERVER, а также там можно посмотреть
 какие слоты памяти активны.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="server_4" src="images/server_4.jpg" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="server_4" src="/images/server_4.jpg" /&gt;&lt;/p&gt;
 &lt;p&gt;Попытка установить Windows XP успехом не увенчалась, при попытке установки драйвера рейда
 я стабильно вываливался в синий экран. Пользуясь случаем передаю привет MS.&lt;/p&gt;
 &lt;p&gt;Debian 8 установилась по PXE без вопросов, хотя ставилась довольно долго, порядка двух часов.&lt;/p&gt;
@@ -442,7 +442,7 @@ make publish &amp;amp;&amp;amp; make serve
 &lt;h3&gt;Тест компиляции. Компиляция ядра Линукс на дефолтном конфиге.&lt;/h3&gt;
 &lt;p&gt;В этом тесте я также решил найти определить оптимальное количество потоков для компиляции.
 В gentoo.wiki сказано что потоков должно быть на 1 больше, чем количество ядер процессоров.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="bench_0" src="images/bench_0.png" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="bench_0" src="/images/bench_0.png" /&gt;&lt;/p&gt;
 &lt;p&gt;В моем случае лучшие результаты достигаются при колличестве потоко роному количеству ядер, т.е.
 4 и 2 при включенном и выключенным Hyper-threading соответственно.&lt;/p&gt;
 &lt;table border="1" class="docutils"&gt;
@@ -507,7 +507,7 @@ make publish &amp;amp;&amp;amp; make serve
 &lt;/div&gt;
 &lt;div class="section" id="id6"&gt;
 &lt;h3&gt;Тест sysbench процессор&lt;/h3&gt;
-&lt;p&gt;&lt;img alt="bench_1" src="images/bench_0.png" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="bench_1" src="/images/bench_0.png" /&gt;&lt;/p&gt;
 &lt;p&gt;Лучшие результаты также как и в тесте с компиляцией получаются на 2 и 4 потоках.&lt;/p&gt;
 &lt;table border="1" class="docutils"&gt;
 &lt;colgroup&gt;
