@@ -22,7 +22,287 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="/prikruchivaem-iandeskmetriku-k-pelican-pravilno.html">Прикручиваем Яндеск.Метрику к pelican правильно.</a></h1>
+                    <h1 class="entry-title"><a href="/server-v-roli-rabochei-stantsii-proveriaem-zakon-mura.html">Сервер в роли рабочей станции. Проверяем закон Мура</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2016-12-11T20:00:00+03:00">
+                Published: Sun 11 December 2016
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/nikolai-shamanovich.html">Николай Шаманович</a>
+        </address>
+<p>In <a href="/category/zhelezo.html">Железо</a>.</p>
+<p>tags: <a href="/tag/hardware.html">hardware</a> <a href="/tag/retro.html">retro</a> <a href="/tag/benchmark.html">benchmark</a> <a href="/tag/xeon.html">xeon</a> <a href="/tag/intel.html">Intel</a> <a href="/tag/supermicro.html">SuperMicro</a> <a href="/tag/linux.html">Linux</a> <a href="/tag/zhelezo.html">железо</a> <a href="/tag/server.html">сервер</a> </p>
+</footer><!-- /.post-info --><p>Со скоростью достаочно расторопного ленивца собрал наконец свой убер-ПК на основе серверной материнки.
+В этой статье будет небольшой обзор и тест, а также я попробую проверить закон Мура,
+а именно, то что производительность МП удваивается каждые 18 мес.
+Сравнивать я буду свой новый сервер и ретросервер, обзор и тестирование которого я делал недавно.
+Почитать про ретросервер можно <a class="reference external" href="/na-chto-sposoben-server-za-500-rublei-obzor-i-testirovanie.html">тут</a>.</p>
+<p><img alt="server_5" src="images/server_5.jpg" /></p>
+<p>Я считаю что эти сервера идеально подходят для того чтобы проверить закон Мура. Оба сервера являются средемощными
+для своего времени, являются так сказать лучшими по показателю цена/качество. Также у обоих машин
+явный перебор по объему памяти для моих тестов.</p>
+<p>Собственно характеристики нового сервера такие:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="40%" />
+<col width="60%" />
+</colgroup>
+<tbody valign="top">
+<tr><td>Материская плата</td>
+<td>SuperMicro X8DTL-i</td>
+</tr>
+<tr><td>Процессор</td>
+<td>2 x Intel Xeon X5650</td>
+</tr>
+<tr><td>Память</td>
+<td>4 x 8Gb Hynix DDR3-1333Mgz</td>
+</tr>
+<tr><td>Жесткйи диск</td>
+<td>WD SATA-III 1Tb WD10EZEX Blue</td>
+</tr>
+</tbody>
+</table>
+<p>Корпус остался от ретросервера, также поставил звукавуху SB Live! и видео Radeon HD 4650 от ASUS.</p>
+<p>Плата пришла ко мне с небольшими дефектам, была немного погнута ножка на сокете и были всякие разводы,
+остатки термопасты и прочие следы эксплуатации, хотя продавец на Ибее утверждал, что плата ни разу не
+запускалась и все такое.</p>
+<p><img alt="server_6" src="images/server_6.jpg" /></p>
+<p>В любом случае досталась мне опять таки очень дешево и я особо не стал разбираться. Благо плата
+пришла в хорошей упаковке и в работе никаких нареканий не вызывает. Но продавцу все-равно дизлайк.</p>
+<div class="section" id="id3">
+<h2>Тесты</h2>
+<p>Будем считать что ретросервер на intel se7520bd2(dp2800) был выпушен в 2005 году
+(точной информации по выходу платы не нашел, взял дату самого старого драйвера с сайта интел),
+а новый сервер на SuperMicro X8DTL-i(x5650) в 2010 (тоже дата с сайта интел, только взята для процессора X5650)</p>
+<p>Итого примерная разница в возрасте 5 лет или 60 месяцев, и согласно закону Мура производительность должна вырасти
+в 2^3.33 = 10 раз. Так как я не знаю точного возраста железа, некоторые отклонения вполне допустимы.</p>
+<p>Тестирование я проводил по такой же схеме как и в статье про ретросервер.</p>
+<div class="section" id="id4">
+<h3>Список тестов:</h3>
+<ol class="arabic simple" start="0">
+<li>Тест архиватора bzip2. Архивация установочника дебиана.</li>
+<li>Тест архиватора pbzip2. Архивация установочника дебиана.</li>
+<li>Тест архиватора zpaq. Архивация установочника дебиана.</li>
+<li>Тест компиляции. Компиляция ядра Линукс на дефолтном конфиге.</li>
+<li>Тест LinPack (Intel® MKL Benchmarks).</li>
+<li>Тест sysbench память</li>
+<li>Тест sysbench процессор</li>
+<li>Тест диска hdparm -t /dev/sda</li>
+</ol>
+</div>
+<div class="section" id="bzip2">
+<h3>Тест архиватора bzip2. Архивация установочника дебиана.</h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="18%" />
+<col width="38%" />
+<col width="44%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Сервер</th>
+<th class="head">с Hyper-threading</th>
+<th class="head">без Hyper-threading</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>dp2800</td>
+<td>192.14 сек.</td>
+<td>192.47 сек.</td>
+</tr>
+<tr><td>x5650</td>
+<td>122.33 сек.</td>
+<td>130.22 сек.</td>
+</tr>
+</tbody>
+</table>
+<p>Как и в случае с ретросервером Hypr-threading совершенно не влияет на тест в однопоточном bzib2.</p>
+<p>Если сравнивать результаты двух серверов, то получаем ускорение всего лишь в 1.5 раза. Собственно это можно объяснить тем, что частоты
+у процессоров приблизительно одинаковые, а вот количество ядер отличается на порядок, следовательно тесты, в которых
+задействован параллелизм будут более показательными.</p>
+</div>
+<div class="section" id="pbzip2">
+<h3>Тест архиватора pbzip2. Архивация установочника дебиана.</h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="16%" />
+<col width="39%" />
+<col width="45%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Сервер</th>
+<th class="head">с hyper-threading</th>
+<th class="head">без hyper-threading</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>dp2800</td>
+<td>85.57 сек.</td>
+<td>101.74 сек.</td>
+</tr>
+<tr><td>x5650</td>
+<td>8.97</td>
+<td>10.9</td>
+</tr>
+</tbody>
+</table>
+<p>Этот тест показывает то самое ускорение в 10 раз, что собственно не может не радовать. Hyper-threading тут в очередной раз показывает
+свою полезность.</p>
+</div>
+<div class="section" id="zpaq">
+<h3>Тест архиватора zpaq. Архивация установочника дебиана.</h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="16%" />
+<col width="39%" />
+<col width="45%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Сервер</th>
+<th class="head">с hyper-threading</th>
+<th class="head">без hyper-threading</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>dp2800</td>
+<td>4024 сек.</td>
+<td>4083 сек.</td>
+</tr>
+<tr><td>x5650</td>
+<td>1566 сек.</td>
+<td>1561 сек.</td>
+</tr>
+</tbody>
+</table>
+<p>Снова последовательный тест, но в данном случае получаем ускорение в 2.5 раза, что лучше, чем в тесте bzip2, но все же до 10
+сильно не дотягивает.</p>
+</div>
+<div class="section" id="id5">
+<h3>Тест компиляции. Компиляция ядра Линукс на дефолтном конфиге.</h3>
+<p><img alt="bench_2" src="images/bench_2.png" /></p>
+<p>Лучший результат достигается на 24 потоках с включеным Hyper-threading - 77.54 сек. Если сравнивать с лучшим результатом ретросервера,
+то получается ускорение в 14.8 раз.</p>
+</div>
+<div class="section" id="linpack-intel-mkl-benchmarks">
+<h3>Тест LinPack (Intel® MKL Benchmarks).</h3>
+<p>Наверное это будет самый показательный тест. Опять только бинарный тест, но я вроде понял что этот тест просто не работает с ядрами
+Hyper-threading.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="16%" />
+<col width="39%" />
+<col width="45%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Сервер</th>
+<th class="head">с hyper-threading</th>
+<th class="head">без hyper-threading</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>dp2800</td>
+<td>4.972 Gflops</td>
+<td>5.216 Gflops</td>
+</tr>
+<tr><td>x5650</td>
+<td>122.89 Gflops</td>
+<td>123.05 Gflops</td>
+</tr>
+</tbody>
+</table>
+<p>Тут получается ускорение аж в 23.6 раза! Hyper-threading на результаты нового сервера не влияет.</p>
+</div>
+<div class="section" id="sysbench">
+<h3>Тест sysbench память</h3>
+<p>Тут проверять Hyper-threading нет смылсла.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="46%" />
+<col width="54%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">dp2800</th>
+<th class="head">x5650</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>1095 Mb/сек.</td>
+<td>1832 Mb/сек.</td>
+</tr>
+</tbody>
+</table>
+<p>Получаем ускорение в 1.7 раз.</p>
+</div>
+<div class="section" id="id6">
+<h3>Тест sysbench процессор</h3>
+<p>Тут я выбрал для сравнения только лучшие результаты.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">dp2800 с HT 4 потока</th>
+<th class="head">x5650 с HT 24 потока</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>10.4 сек</td>
+<td>0.67</td>
+</tr>
+</tbody>
+</table>
+<p>Ускорение в 15.5 раз.</p>
+</div>
+<div class="section" id="hdparm-t-dev-sda">
+<h3>Тест диска hdparm -t /dev/sda</h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="46%" />
+<col width="54%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">dp2800</th>
+<th class="head">x5650</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>75.11 Mb/сек.</td>
+<td>175.6 Mb/сек.</td>
+</tr>
+</tbody>
+</table>
+<p>Ускорение в 2.3 раза.</p>
+</div>
+</div>
+<div class="section" id="id7">
+<h2>Заключение</h2>
+<p>Естественно, новый сервер оказался гораздо мощнее, но только эта мощность распределилась несколько неравномерно.
+Если рассматривать тесты, которые не используют многопоточность, то тут все весьма грустно и мы имеем не более чем трехкратную прибавку
+производительности, если же рассматривать многопоточные тесты, то получается что можно достичь и 25-ти кратного ускорения
+Тесты, которые не зависят напрямую от процессора также не показали ожидаемого 10-ти кратного прироста
+производительности.</p>
+<p>Из всего этого можно сделать вывод, что закон Мура может выполняться только, при рассмотрении системы в целом. Результаты
+подобных тестов могут сильно варьироваться в зависимости от методики тестирования или фаз луны, поэтому, когда в
+следующий раз увидите заявления о том что закон Мура не выполняется или наоборот перевыполняется обратите внимание на то
+что и как мерили. А вообще довольно трудно судить о верности закона Мура на основе всего лишь двух тестов разных машин.
+Вообще все эти тесты я производил для того, чтобы убедится в том, что новый сервак тащит да и просто just for fun, а закон Мура
+был выбран в качестве ориентира.</p>
+</div>
+                </article>
+            </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/prikruchivaem-iandeskmetriku-k-pelican-pravilno.html" rel="bookmark"
+                           title="Permalink to Прикручиваем Яндеск.Метрику к pelican правильно.">Прикручиваем Яндеск.Метрику к pelican правильно.</a></h1>
+                </header>
+
+                <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2016-12-05T23:00:00+03:00">
                 Published: Mon 05 December 2016
@@ -33,76 +313,15 @@
         </address>
 <p>In <a href="/category/veb.html">Веб</a>.</p>
 <p>tags: <a href="/tag/pelican.html">pelican</a> <a href="/tag/howto.html">howto</a> <a href="/tag/yandexmetrika.html">yandex.metrika</a> <a href="/tag/web.html">web</a> <a href="/tag/iandeksmetrika.html">Яндекс.Метрика</a> </p>
-</footer><!-- /.post-info --><p>Попытался найти в интернете как приделать Метрику к своему блогу,
+</footer><!-- /.post-info -->                <p>Попытался найти в интернете как приделать Метрику к своему блогу,
 но находил только решения типа — приколоти на гвозди вот тут,
 и так сойдет. Короче решил разобраться и сделать все как надо.</p>
 <p>Для начала генерируем html код счетчика согласно официальной инструкции:
 <a class="reference external" href="https://yandex.ru/support/metrika/quick-start.xml">https://yandex.ru/support/metrika/quick-start.xml</a></p>
-<p>Открываем publishconf.py.
-В нем создаем новый параметр, в котором будет храниться номер вашего счетчика</p>
-<p>Например так:</p>
-<p>YANDEX_METRIKA = &quot;41353264&quot;</p>
-<p>Затем нужно доработать тему.</p>
-<p>Моя тема хранится в паке блога в themes/shmblog/ и это по сути копия
-стандартной темы.</p>
-<p>Добавляем новый шаблон <em>themes/shmblog/templates/metrika.html</em></p>
-<pre class="literal-block">
-{% if YANDEX_METRIKA %}
-&lt;!-- Yandex.Metrika counter --&gt;
-&lt;script type=&quot;text/javascript&quot;&gt;
-    (function (d, w, c) {
-        (w[c] = w[c] || []).push(function() {
-            try {
-                w.yaCounter{{YANDEX_METRIKA}} = new Ya.Metrika({
-                    id: {{YANDEX_METRIKA}},
-                    clickmap:true,
-                    trackLinks:true,
-                    accurateTrackBounce:true
-                });
-            } catch(e) { }
-        });
-
-        var n = d.getElementsByTagName(&quot;script&quot;)[0],
-            s = d.createElement(&quot;script&quot;),
-            f = function () { n.parentNode.insertBefore(s, n); };
-        s.type = &quot;text/javascript&quot;;
-        s.async = true;
-        s.src = &quot;https://mc.yandex.ru/metrika/watch.js&quot;;
-
-        if (w.opera == &quot;[object Opera]&quot;) {
-            d.addEventListener(&quot;DOMContentLoaded&quot;, f, false);
-        } else { f(); }
-    })(document, window, &quot;yandex_metrika_callbacks&quot;);
-&lt;/script&gt;
-&lt;noscript&gt;&lt;div&gt;&lt;img src=&quot;https://mc.yandex.ru/watch/{{YANDEX_METRIKA}}&quot; style=&quot;position:absolute; left:-9999px;&quot; alt=&quot;&quot; /&gt;&lt;/div&gt;&lt;/noscript&gt;
-&lt;!-- /Yandex.Metrika counter --&gt;
-{% endif %}
-</pre>
-<p>Это тот самый код, который нам генерирует Яндекс,
-только код счетчика заменен на {{YANDEX_METRIKA}}.</p>
-<p>Далее правим основной шаблон. <em>themes/shmblog/templates/base.html</em></p>
-<p>Дописываем куда-нибудь в конец строку:</p>
-<pre class="literal-block">
-{% include 'metrika.html' %}
-</pre>
-<p>Ну теперь все, проверяем. Запускаем сервер и генерируем сайт с продакшн
-настройками.</p>
-<pre class="literal-block">
-make publish &amp;&amp; make serve
-</pre>
-<p>Естественно локально сайт будет выглядеть криво,
-главное найти найти в конце странице наш код метрики и сравнить его с тем,
-что сгенерировал Яндекс.
-Если все верно, то можно публиковать.</p>
-<p>P.S.
-Статистика на сайте обновляется примерно раз в полчаса,
-адблоки могут блокировать работу метрики.</p>
-                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
+<p>Открываем publishconf.py ...</p>
+                <a class="readmore" href="/prikruchivaem-iandeskmetriku-k-pelican-pravilno.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
 
             <li><article class="hentry">
                 <header>

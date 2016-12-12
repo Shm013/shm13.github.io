@@ -1,5 +1,261 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Шаманский блог</title><link href="/" rel="alternate"></link><link href="/feeds/zhelezo.atom.xml" rel="self"></link><id>/</id><updated>2016-11-29T12:00:00+03:00</updated><entry><title>На что способен сервер за 500 рублей. Обзор и тестирование</title><link href="/na-chto-sposoben-server-za-500-rublei-obzor-i-testirovanie.html" rel="alternate"></link><updated>2016-11-29T12:00:00+03:00</updated><author><name>Николай Шаманович</name></author><id>tag:,2016-11-29:na-chto-sposoben-server-za-500-rublei-obzor-i-testirovanie.html</id><summary type="html">&lt;p&gt;Попался мне тут в руки один ретросервер. Приобрел я его на всеми любимом авито всего за 500 рублей.
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Шаманский блог</title><link href="/" rel="alternate"></link><link href="/feeds/zhelezo.atom.xml" rel="self"></link><id>/</id><updated>2016-12-11T20:00:00+03:00</updated><entry><title>Сервер в роли рабочей станции. Проверяем закон Мура</title><link href="/server-v-roli-rabochei-stantsii-proveriaem-zakon-mura.html" rel="alternate"></link><updated>2016-12-11T20:00:00+03:00</updated><author><name>Николай Шаманович</name></author><id>tag:,2016-12-11:server-v-roli-rabochei-stantsii-proveriaem-zakon-mura.html</id><summary type="html">&lt;p&gt;Со скоростью достаочно расторопного ленивца собрал наконец свой убер-ПК на основе серверной материнки.
+В этой статье будет небольшой обзор и тест, а также я попробую проверить закон Мура,
+а именно, то что производительность МП удваивается каждые 18 мес.
+Сравнивать я буду свой новый сервер и ретросервер, обзор и тестирование которого я делал недавно.
+Почитать про ретросервер можно &lt;a class="reference external" href="/na-chto-sposoben-server-za-500-rublei-obzor-i-testirovanie.html"&gt;тут&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="server_5" src="images/server_5.jpg" /&gt;&lt;/p&gt;
+&lt;p&gt;Я считаю что эти сервера идеально подходят для того чтобы проверить закон Мура. Оба сервера являются средемощными
+для своего времени, являются так сказать лучшими по показателю цена/качество. Также у обоих машин
+явный перебор по объему памяти для моих тестов.&lt;/p&gt;
+&lt;p&gt;Собственно характеристики нового сервера такие:&lt;/p&gt;
+&lt;table border="1" class="docutils"&gt;
+&lt;colgroup&gt;
+&lt;col width="40%" /&gt;
+&lt;col width="60%" /&gt;
+&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td&gt;Материская плата&lt;/td&gt;
+&lt;td&gt;SuperMicro X8DTL-i&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Процессор&lt;/td&gt;
+&lt;td&gt;2 x Intel Xeon X5650&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Память&lt;/td&gt;
+&lt;td&gt;4 x 8Gb Hynix DDR3-1333Mgz&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Жесткйи диск&lt;/td&gt;
+&lt;td&gt;WD SATA-III 1Tb WD10EZEX Blue&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Корпус остался от ретросервера, также поставил звукавуху SB Live! и видео Radeon HD 4650 от ASUS.&lt;/p&gt;
+&lt;p&gt;Плата пришла ко мне с небольшими дефектам, была немного погнута ножка на сокете и были всякие разводы,
+остатки термопасты и прочие следы эксплуатации, хотя продавец на Ибее утверждал, что плата ни разу не
+запускалась и все такое.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="server_6" src="images/server_6.jpg" /&gt;&lt;/p&gt;
+&lt;p&gt;В любом случае досталась мне опять таки очень дешево и я особо не стал разбираться. Благо плата
+пришла в хорошей упаковке и в работе никаких нареканий не вызывает. Но продавцу все-равно дизлайк.&lt;/p&gt;
+&lt;div class="section" id="id3"&gt;
+&lt;h2&gt;Тесты&lt;/h2&gt;
+&lt;p&gt;Будем считать что ретросервер на intel se7520bd2(dp2800) был выпушен в 2005 году
+(точной информации по выходу платы не нашел, взял дату самого старого драйвера с сайта интел),
+а новый сервер на SuperMicro X8DTL-i(x5650) в 2010 (тоже дата с сайта интел, только взята для процессора X5650)&lt;/p&gt;
+&lt;p&gt;Итого примерная разница в возрасте 5 лет или 60 месяцев, и согласно закону Мура производительность должна вырасти
+в 2^3.33 = 10 раз. Так как я не знаю точного возраста железа, некоторые отклонения вполне допустимы.&lt;/p&gt;
+&lt;p&gt;Тестирование я проводил по такой же схеме как и в статье про ретросервер.&lt;/p&gt;
+&lt;div class="section" id="id4"&gt;
+&lt;h3&gt;Список тестов:&lt;/h3&gt;
+&lt;ol class="arabic simple" start="0"&gt;
+&lt;li&gt;Тест архиватора bzip2. Архивация установочника дебиана.&lt;/li&gt;
+&lt;li&gt;Тест архиватора pbzip2. Архивация установочника дебиана.&lt;/li&gt;
+&lt;li&gt;Тест архиватора zpaq. Архивация установочника дебиана.&lt;/li&gt;
+&lt;li&gt;Тест компиляции. Компиляция ядра Линукс на дефолтном конфиге.&lt;/li&gt;
+&lt;li&gt;Тест LinPack (Intel® MKL Benchmarks).&lt;/li&gt;
+&lt;li&gt;Тест sysbench память&lt;/li&gt;
+&lt;li&gt;Тест sysbench процессор&lt;/li&gt;
+&lt;li&gt;Тест диска hdparm -t /dev/sda&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;div class="section" id="bzip2"&gt;
+&lt;h3&gt;Тест архиватора bzip2. Архивация установочника дебиана.&lt;/h3&gt;
+&lt;table border="1" class="docutils"&gt;
+&lt;colgroup&gt;
+&lt;col width="18%" /&gt;
+&lt;col width="38%" /&gt;
+&lt;col width="44%" /&gt;
+&lt;/colgroup&gt;
+&lt;thead valign="bottom"&gt;
+&lt;tr&gt;&lt;th class="head"&gt;Сервер&lt;/th&gt;
+&lt;th class="head"&gt;с Hyper-threading&lt;/th&gt;
+&lt;th class="head"&gt;без Hyper-threading&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td&gt;dp2800&lt;/td&gt;
+&lt;td&gt;192.14 сек.&lt;/td&gt;
+&lt;td&gt;192.47 сек.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;x5650&lt;/td&gt;
+&lt;td&gt;122.33 сек.&lt;/td&gt;
+&lt;td&gt;130.22 сек.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Как и в случае с ретросервером Hypr-threading совершенно не влияет на тест в однопоточном bzib2.&lt;/p&gt;
+&lt;p&gt;Если сравнивать результаты двух серверов, то получаем ускорение всего лишь в 1.5 раза. Собственно это можно объяснить тем, что частоты
+у процессоров приблизительно одинаковые, а вот количество ядер отличается на порядок, следовательно тесты, в которых
+задействован параллелизм будут более показательными.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="pbzip2"&gt;
+&lt;h3&gt;Тест архиватора pbzip2. Архивация установочника дебиана.&lt;/h3&gt;
+&lt;table border="1" class="docutils"&gt;
+&lt;colgroup&gt;
+&lt;col width="16%" /&gt;
+&lt;col width="39%" /&gt;
+&lt;col width="45%" /&gt;
+&lt;/colgroup&gt;
+&lt;thead valign="bottom"&gt;
+&lt;tr&gt;&lt;th class="head"&gt;Сервер&lt;/th&gt;
+&lt;th class="head"&gt;с hyper-threading&lt;/th&gt;
+&lt;th class="head"&gt;без hyper-threading&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td&gt;dp2800&lt;/td&gt;
+&lt;td&gt;85.57 сек.&lt;/td&gt;
+&lt;td&gt;101.74 сек.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;x5650&lt;/td&gt;
+&lt;td&gt;8.97&lt;/td&gt;
+&lt;td&gt;10.9&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Этот тест показывает то самое ускорение в 10 раз, что собственно не может не радовать. Hyper-threading тут в очередной раз показывает
+свою полезность.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="zpaq"&gt;
+&lt;h3&gt;Тест архиватора zpaq. Архивация установочника дебиана.&lt;/h3&gt;
+&lt;table border="1" class="docutils"&gt;
+&lt;colgroup&gt;
+&lt;col width="16%" /&gt;
+&lt;col width="39%" /&gt;
+&lt;col width="45%" /&gt;
+&lt;/colgroup&gt;
+&lt;thead valign="bottom"&gt;
+&lt;tr&gt;&lt;th class="head"&gt;Сервер&lt;/th&gt;
+&lt;th class="head"&gt;с hyper-threading&lt;/th&gt;
+&lt;th class="head"&gt;без hyper-threading&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td&gt;dp2800&lt;/td&gt;
+&lt;td&gt;4024 сек.&lt;/td&gt;
+&lt;td&gt;4083 сек.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;x5650&lt;/td&gt;
+&lt;td&gt;1566 сек.&lt;/td&gt;
+&lt;td&gt;1561 сек.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Снова последовательный тест, но в данном случае получаем ускорение в 2.5 раза, что лучше, чем в тесте bzip2, но все же до 10
+сильно не дотягивает.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id5"&gt;
+&lt;h3&gt;Тест компиляции. Компиляция ядра Линукс на дефолтном конфиге.&lt;/h3&gt;
+&lt;p&gt;&lt;img alt="bench_2" src="images/bench_2.png" /&gt;&lt;/p&gt;
+&lt;p&gt;Лучший результат достигается на 24 потоках с включеным Hyper-threading - 77.54 сек. Если сравнивать с лучшим результатом ретросервера,
+то получается ускорение в 14.8 раз.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="linpack-intel-mkl-benchmarks"&gt;
+&lt;h3&gt;Тест LinPack (Intel® MKL Benchmarks).&lt;/h3&gt;
+&lt;p&gt;Наверное это будет самый показательный тест. Опять только бинарный тест, но я вроде понял что этот тест просто не работает с ядрами
+Hyper-threading.&lt;/p&gt;
+&lt;table border="1" class="docutils"&gt;
+&lt;colgroup&gt;
+&lt;col width="16%" /&gt;
+&lt;col width="39%" /&gt;
+&lt;col width="45%" /&gt;
+&lt;/colgroup&gt;
+&lt;thead valign="bottom"&gt;
+&lt;tr&gt;&lt;th class="head"&gt;Сервер&lt;/th&gt;
+&lt;th class="head"&gt;с hyper-threading&lt;/th&gt;
+&lt;th class="head"&gt;без hyper-threading&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td&gt;dp2800&lt;/td&gt;
+&lt;td&gt;4.972 Gflops&lt;/td&gt;
+&lt;td&gt;5.216 Gflops&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;x5650&lt;/td&gt;
+&lt;td&gt;122.89 Gflops&lt;/td&gt;
+&lt;td&gt;123.05 Gflops&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Тут получается ускорение аж в 23.6 раза! Hyper-threading на результаты нового сервера не влияет.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="sysbench"&gt;
+&lt;h3&gt;Тест sysbench память&lt;/h3&gt;
+&lt;p&gt;Тут проверять Hyper-threading нет смылсла.&lt;/p&gt;
+&lt;table border="1" class="docutils"&gt;
+&lt;colgroup&gt;
+&lt;col width="46%" /&gt;
+&lt;col width="54%" /&gt;
+&lt;/colgroup&gt;
+&lt;thead valign="bottom"&gt;
+&lt;tr&gt;&lt;th class="head"&gt;dp2800&lt;/th&gt;
+&lt;th class="head"&gt;x5650&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td&gt;1095 Mb/сек.&lt;/td&gt;
+&lt;td&gt;1832 Mb/сек.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Получаем ускорение в 1.7 раз.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id6"&gt;
+&lt;h3&gt;Тест sysbench процессор&lt;/h3&gt;
+&lt;p&gt;Тут я выбрал для сравнения только лучшие результаты.&lt;/p&gt;
+&lt;table border="1" class="docutils"&gt;
+&lt;colgroup&gt;
+&lt;col width="50%" /&gt;
+&lt;col width="50%" /&gt;
+&lt;/colgroup&gt;
+&lt;thead valign="bottom"&gt;
+&lt;tr&gt;&lt;th class="head"&gt;dp2800 с HT 4 потока&lt;/th&gt;
+&lt;th class="head"&gt;x5650 с HT 24 потока&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td&gt;10.4 сек&lt;/td&gt;
+&lt;td&gt;0.67&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Ускорение в 15.5 раз.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="hdparm-t-dev-sda"&gt;
+&lt;h3&gt;Тест диска hdparm -t /dev/sda&lt;/h3&gt;
+&lt;table border="1" class="docutils"&gt;
+&lt;colgroup&gt;
+&lt;col width="46%" /&gt;
+&lt;col width="54%" /&gt;
+&lt;/colgroup&gt;
+&lt;thead valign="bottom"&gt;
+&lt;tr&gt;&lt;th class="head"&gt;dp2800&lt;/th&gt;
+&lt;th class="head"&gt;x5650&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td&gt;75.11 Mb/сек.&lt;/td&gt;
+&lt;td&gt;175.6 Mb/сек.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Ускорение в 2.3 раза.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id7"&gt;
+&lt;h2&gt;Заключение&lt;/h2&gt;
+&lt;p&gt;Естественно, новый сервер оказался гораздо мощнее, но только эта мощность распределилась несколько неравномерно.
+Если рассматривать тесты, которые не используют многопоточность, то тут все весьма грустно и мы имеем не более чем трехкратную прибавку
+производительности, если же рассматривать многопоточные тесты, то получается что можно достичь и 25-ти кратного ускорения
+Тесты, которые не зависят напрямую от процессора также не показали ожидаемого 10-ти кратного прироста
+производительности.&lt;/p&gt;
+&lt;p&gt;Из всего этого можно сделать вывод, что закон Мура может выполняться только, при рассмотрении системы в целом. Результаты
+подобных тестов могут сильно варьироваться в зависимости от методики тестирования или фаз луны, поэтому, когда в
+следующий раз увидите заявления о том что закон Мура не выполняется или наоборот перевыполняется обратите внимание на то
+что и как мерили. А вообще довольно трудно судить о верности закона Мура на основе всего лишь двух тестов разных машин.
+Вообще все эти тесты я производил для того, чтобы убедится в том, что новый сервак тащит да и просто just for fun, а закон Мура
+был выбран в качестве ориентира.&lt;/p&gt;
+&lt;/div&gt;
+</summary><category term="hardware"></category><category term="retro"></category><category term="benchmark"></category><category term="xeon"></category><category term="Intel"></category><category term="SuperMicro"></category><category term="Linux"></category><category term="железо"></category><category term="сервер"></category></entry><entry><title>На что способен сервер за 500 рублей. Обзор и тестирование</title><link href="/na-chto-sposoben-server-za-500-rublei-obzor-i-testirovanie.html" rel="alternate"></link><updated>2016-11-29T12:00:00+03:00</updated><author><name>Николай Шаманович</name></author><id>tag:,2016-11-29:na-chto-sposoben-server-za-500-rublei-obzor-i-testirovanie.html</id><summary type="html">&lt;p&gt;Попался мне тут в руки один ретросервер. Приобрел я его на всеми любимом авито всего за 500 рублей.
 По сути мне нужен был только корпус, все что было внутри его продавец отдал мне в качестве подарка.&lt;/p&gt;
 &lt;p&gt;&lt;img alt="server_0" src="images/server_0.jpg" /&gt;&lt;/p&gt;
 &lt;p&gt;Собственно за 500 рублей я получил только корпус с бекплейтом, материнку, 2 процессора, привод CD-ROM, флоппик,

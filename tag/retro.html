@@ -22,55 +22,64 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="/na-chto-sposoben-server-za-500-rublei-obzor-i-testirovanie.html">На что способен сервер за 500 рублей. Обзор и тестирование</a></h1>
+                    <h1 class="entry-title"><a href="/server-v-roli-rabochei-stantsii-proveriaem-zakon-mura.html">Сервер в роли рабочей станции. Проверяем закон Мура</a></h1>
 <footer class="post-info">
-        <abbr class="published" title="2016-11-29T12:00:00+03:00">
-                Published: Tue 29 November 2016
+        <abbr class="published" title="2016-12-11T20:00:00+03:00">
+                Published: Sun 11 December 2016
         </abbr>
 
         <address class="vcard author">
                 By                         <a class="url fn" href="/author/nikolai-shamanovich.html">Николай Шаманович</a>
         </address>
 <p>In <a href="/category/zhelezo.html">Железо</a>.</p>
-<p>tags: <a href="/tag/hardware.html">hardware</a> <a href="/tag/retro.html">retro</a> <a href="/tag/benchmark.html">benchmark</a> <a href="/tag/xeon.html">xeon</a> <a href="/tag/intel.html">Intel</a> <a href="/tag/linux.html">Linux</a> <a href="/tag/zhelezo.html">железо</a> <a href="/tag/retro.html">ретро</a> <a href="/tag/server.html">сервер</a> </p>
-</footer><!-- /.post-info --><p>Попался мне тут в руки один ретросервер. Приобрел я его на всеми любимом авито всего за 500 рублей.
-По сути мне нужен был только корпус, все что было внутри его продавец отдал мне в качестве подарка.</p>
-<p><img alt="server_0" src="images/server_0.jpg" /></p>
-<p>Собственно за 500 рублей я получил только корпус с бекплейтом, материнку, 2 процессора, привод CD-ROM, флоппик,
-и 4 SCSI диска. Весела эта штука порядка 25 килограмм и пер я ее долго и
-упорно почти через весь город, но это не так важно...
-Притащил эту штуку домой, разобрал, почистил, снова собрал, и где-то в процессе всех этих действий у меня
-возникло дикое желание запустить данный аппарат и посмотреть на что он способен.</p>
-<p><img alt="server_3" src="images/server_3.jpg" /></p>
-<p>Недостающие компоненты были куплены на не менее любимом всеми ebay, тоже достаточно дешево,
-и вот почти через месяц приехали ко мне. Можно собирать.</p>
-<p>Конфигурация получилась такая:</p>
-<ul class="simple">
-<li>материнская плата intel se7520bd2;</li>
-<li>пара процессоров intel xeon dp2800/2mb/800;</li>
-<li>4 планки памяти неизвестного производителя DDR-266 по 2Гб, всего получилось 8Гб;</li>
-<li>4 диска Seageate Cheetah 10K.7 ST373207LC по 80 Gb каждый;</li>
-<li>блок питания Rosewill Hiwe-1000, могучий киловатник.</li>
-</ul>
-<p>С блоком питания тут явный перебор, но он предназначается совсем другому серверу.
-Также для проверки воткнул видекарту Radeon 9250 и звуковуху Sound blaster live! 5.1.</p>
-<p><img alt="server_1" src="images/server_1.jpg" /></p>
-<p>После запуска сервер начал довольно сильно шуметь вентиляторами и дисками, а рейд-контроллер
-начал пищать на все лады. Картинка на мониторе появилась только после пары минут.</p>
-<p><img alt="server_2" src="images/server_2.jpg" /></p>
-<p>Нерабочими оказались только пара дисков, я их вынул, а из оставшихся двух собрал RAID 1.
-Все остальное железо вроде бы функционирует исправно.</p>
-<p>Быстренько пробежимся по возможностям этого сервера - он умеет в PXE, Hyper-threading, EFI32, также
-у него в биое присутствует дополнительная вкладка SERVER, а также там можно посмотреть
-какие слоты памяти активны.</p>
-<p><img alt="server_4" src="images/server_4.jpg" /></p>
-<p>Попытка установить Windows XP успехом не увенчалась, при попытке установки драйвера рейда
-я стабильно вываливался в синий экран. Пользуясь случаем передаю привет MS.</p>
-<p>Debian 8 установилась по PXE без вопросов, хотя ставилась довольно долго, порядка двух часов.</p>
-<div class="section" id="id2">
-<h2>Тесты</h2>
+<p>tags: <a href="/tag/hardware.html">hardware</a> <a href="/tag/retro.html">retro</a> <a href="/tag/benchmark.html">benchmark</a> <a href="/tag/xeon.html">xeon</a> <a href="/tag/intel.html">Intel</a> <a href="/tag/supermicro.html">SuperMicro</a> <a href="/tag/linux.html">Linux</a> <a href="/tag/zhelezo.html">железо</a> <a href="/tag/server.html">сервер</a> </p>
+</footer><!-- /.post-info --><p>Со скоростью достаочно расторопного ленивца собрал наконец свой убер-ПК на основе серверной материнки.
+В этой статье будет небольшой обзор и тест, а также я попробую проверить закон Мура,
+а именно, то что производительность МП удваивается каждые 18 мес.
+Сравнивать я буду свой новый сервер и ретросервер, обзор и тестирование которого я делал недавно.
+Почитать про ретросервер можно <a class="reference external" href="/na-chto-sposoben-server-za-500-rublei-obzor-i-testirovanie.html">тут</a>.</p>
+<p><img alt="server_5" src="images/server_5.jpg" /></p>
+<p>Я считаю что эти сервера идеально подходят для того чтобы проверить закон Мура. Оба сервера являются средемощными
+для своего времени, являются так сказать лучшими по показателю цена/качество. Также у обоих машин
+явный перебор по объему памяти для моих тестов.</p>
+<p>Собственно характеристики нового сервера такие:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="40%" />
+<col width="60%" />
+</colgroup>
+<tbody valign="top">
+<tr><td>Материская плата</td>
+<td>SuperMicro X8DTL-i</td>
+</tr>
+<tr><td>Процессор</td>
+<td>2 x Intel Xeon X5650</td>
+</tr>
+<tr><td>Память</td>
+<td>4 x 8Gb Hynix DDR3-1333Mgz</td>
+</tr>
+<tr><td>Жесткйи диск</td>
+<td>WD SATA-III 1Tb WD10EZEX Blue</td>
+</tr>
+</tbody>
+</table>
+<p>Корпус остался от ретросервера, также поставил звукавуху SB Live! и видео Radeon HD 4650 от ASUS.</p>
+<p>Плата пришла ко мне с небольшими дефектам, была немного погнута ножка на сокете и были всякие разводы,
+остатки термопасты и прочие следы эксплуатации, хотя продавец на Ибее утверждал, что плата ни разу не
+запускалась и все такое.</p>
+<p><img alt="server_6" src="images/server_6.jpg" /></p>
+<p>В любом случае досталась мне опять таки очень дешево и я особо не стал разбираться. Благо плата
+пришла в хорошей упаковке и в работе никаких нареканий не вызывает. Но продавцу все-равно дизлайк.</p>
 <div class="section" id="id3">
-<h3>Список тестов</h3>
+<h2>Тесты</h2>
+<p>Будем считать что ретросервер на intel se7520bd2(dp2800) был выпушен в 2005 году
+(точной информации по выходу платы не нашел, взял дату самого старого драйвера с сайта интел),
+а новый сервер на SuperMicro X8DTL-i(x5650) в 2010 (тоже дата с сайта интел, только взята для процессора X5650)</p>
+<p>Итого примерная разница в возрасте 5 лет или 60 месяцев, и согласно закону Мура производительность должна вырасти
+в 2^3.33 = 10 раз. Так как я не знаю точного возраста железа, некоторые отклонения вполне допустимы.</p>
+<p>Тестирование я проводил по такой же схеме как и в статье про ретросервер.</p>
+<div class="section" id="id4">
+<h3>Список тестов:</h3>
 <ol class="arabic simple" start="0">
 <li>Тест архиватора bzip2. Архивация установочника дебиана.</li>
 <li>Тест архиватора pbzip2. Архивация установочника дебиана.</li>
@@ -82,163 +91,168 @@
 <li>Тест диска hdparm -t /dev/sda</li>
 </ol>
 </div>
-<div class="section" id="id4">
-<h3>Методика тестирования</h3>
-<p>Тесты прогонял один за другим с включенным и выключенным Hyper-threading
-таким образом можно протестировать не только сам сервер, а еще и то
-полезен или вреден Hyper-threading. В тестах архивации был использован
-установочный образ debian-8.1.0-amd64-i386-netinst весом 555 Мб.</p>
-</div>
 <div class="section" id="bzip2">
 <h3>Тест архиватора bzip2. Архивация установочника дебиана.</h3>
-<p>Архивировал с параметром --fast.</p>
 <table border="1" class="docutils">
 <colgroup>
-<col width="46%" />
-<col width="54%" />
+<col width="18%" />
+<col width="38%" />
+<col width="44%" />
 </colgroup>
 <thead valign="bottom">
-<tr><th class="head">с Hyper-threading</th>
+<tr><th class="head">Сервер</th>
+<th class="head">с Hyper-threading</th>
 <th class="head">без Hyper-threading</th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr><td>192.14 сек.</td>
+<tr><td>dp2800</td>
+<td>192.14 сек.</td>
 <td>192.47 сек.</td>
+</tr>
+<tr><td>x5650</td>
+<td>122.33 сек.</td>
+<td>130.22 сек.</td>
 </tr>
 </tbody>
 </table>
-<p>Собственно Hyper-threading не влияет на bzip2 никак.</p>
+<p>Как и в случае с ретросервером Hypr-threading совершенно не влияет на тест в однопоточном bzib2.</p>
+<p>Если сравнивать результаты двух серверов, то получаем ускорение всего лишь в 1.5 раза. Собственно это можно объяснить тем, что частоты
+у процессоров приблизительно одинаковые, а вот количество ядер отличается на порядок, следовательно тесты, в которых
+задействован параллелизм будут более показательными.</p>
 </div>
 <div class="section" id="pbzip2">
 <h3>Тест архиватора pbzip2. Архивация установочника дебиана.</h3>
-<p>Паралельная версия bzip2. Тоже --fast.</p>
 <table border="1" class="docutils">
 <colgroup>
-<col width="46%" />
-<col width="54%" />
+<col width="16%" />
+<col width="39%" />
+<col width="45%" />
 </colgroup>
 <thead valign="bottom">
-<tr><th class="head">с hyper-threading</th>
+<tr><th class="head">Сервер</th>
+<th class="head">с hyper-threading</th>
 <th class="head">без hyper-threading</th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr><td>85.57 сек.</td>
+<tr><td>dp2800</td>
+<td>85.57 сек.</td>
 <td>101.74 сек.</td>
+</tr>
+<tr><td>x5650</td>
+<td>8.97</td>
+<td>10.9</td>
 </tr>
 </tbody>
 </table>
-<p>В этом тесте Hyper-threading оказался весьма полезным.</p>
+<p>Этот тест показывает то самое ускорение в 10 раз, что собственно не может не радовать. Hyper-threading тут в очередной раз показывает
+свою полезность.</p>
 </div>
 <div class="section" id="zpaq">
 <h3>Тест архиватора zpaq. Архивация установочника дебиана.</h3>
-<p>Великий и могучий сжиматель. Архивировал с дефолтными параметрами.</p>
 <table border="1" class="docutils">
 <colgroup>
-<col width="46%" />
-<col width="54%" />
+<col width="16%" />
+<col width="39%" />
+<col width="45%" />
 </colgroup>
 <thead valign="bottom">
-<tr><th class="head">с hyper-threading</th>
+<tr><th class="head">Сервер</th>
+<th class="head">с hyper-threading</th>
 <th class="head">без hyper-threading</th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr><td>4024 сек.</td>
+<tr><td>dp2800</td>
+<td>4024 сек.</td>
 <td>4083 сек.</td>
+</tr>
+<tr><td>x5650</td>
+<td>1566 сек.</td>
+<td>1561 сек.</td>
 </tr>
 </tbody>
 </table>
-<p>Параллельного pzpaq в репозитории не обнаружил, но я думаю что будет то же самое что и с bzip2 pbzip2.</p>
+<p>Снова последовательный тест, но в данном случае получаем ускорение в 2.5 раза, что лучше, чем в тесте bzip2, но все же до 10
+сильно не дотягивает.</p>
 </div>
 <div class="section" id="id5">
 <h3>Тест компиляции. Компиляция ядра Линукс на дефолтном конфиге.</h3>
-<p>В этом тесте я также решил найти определить оптимальное количество потоков для компиляции.
-В gentoo.wiki сказано что потоков должно быть на 1 больше, чем количество ядер процессоров.</p>
-<p><img alt="bench_0" src="images/bench_0.png" /></p>
-<p>В моем случае лучшие результаты достигаются при колличестве потоко роному количеству ядер, т.е.
-4 и 2 при включенном и выключенным Hyper-threading соответственно.</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="47%" />
-<col width="53%" />
-</colgroup>
-<thead valign="bottom">
-<tr><th class="head">с hyper-threading 4 потока</th>
-<th class="head">без hyper-threading 2 потока</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr><td>1158 сек.</td>
-<td>1323 сек.</td>
-</tr>
-</tbody>
-</table>
-<p>Тут hyper-threading снова оказывается весьма полезным.</p>
+<p><img alt="bench_2" src="images/bench_2.png" /></p>
+<p>Лучший результат достигается на 24 потоках с включеным Hyper-threading - 77.54 сек. Если сравнивать с лучшим результатом ретросервера,
+то получается ускорение в 14.8 раз.</p>
 </div>
 <div class="section" id="linpack-intel-mkl-benchmarks">
 <h3>Тест LinPack (Intel® MKL Benchmarks).</h3>
-<p>Тут я прогонял только бинарный тест. Собрать из сорцов у меня не получилось, прошу меня за это простить.
-Бинраный тест запускается на двух потоках.</p>
+<p>Наверное это будет самый показательный тест. Опять только бинарный тест, но я вроде понял что этот тест просто не работает с ядрами
+Hyper-threading.</p>
 <table border="1" class="docutils">
 <colgroup>
-<col width="46%" />
-<col width="54%" />
+<col width="16%" />
+<col width="39%" />
+<col width="45%" />
 </colgroup>
 <thead valign="bottom">
-<tr><th class="head">с hyper-threading</th>
+<tr><th class="head">Сервер</th>
+<th class="head">с hyper-threading</th>
 <th class="head">без hyper-threading</th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr><td>4.972 Gflops</td>
+<tr><td>dp2800</td>
+<td>4.972 Gflops</td>
 <td>5.216 Gflops</td>
+</tr>
+<tr><td>x5650</td>
+<td>122.89 Gflops</td>
+<td>123.05 Gflops</td>
 </tr>
 </tbody>
 </table>
-<p>Этот тест показывает, что все таки Hyper-threading не всегда полезный.</p>
+<p>Тут получается ускорение аж в 23.6 раза! Hyper-threading на результаты нового сервера не влияет.</p>
 </div>
 <div class="section" id="sysbench">
 <h3>Тест sysbench память</h3>
+<p>Тут проверять Hyper-threading нет смылсла.</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="46%" />
 <col width="54%" />
 </colgroup>
 <thead valign="bottom">
-<tr><th class="head">с hyper-threading</th>
-<th class="head">без hyper-threading</th>
+<tr><th class="head">dp2800</th>
+<th class="head">x5650</th>
 </tr>
 </thead>
 <tbody valign="top">
 <tr><td>1095 Mb/сек.</td>
-<td>1100 Mb/сек.</td>
+<td>1832 Mb/сек.</td>
 </tr>
 </tbody>
 </table>
-<p>На результаты этого теста Hyper-threading не влияет, как и количество потоков.</p>
+<p>Получаем ускорение в 1.7 раз.</p>
 </div>
 <div class="section" id="id6">
 <h3>Тест sysbench процессор</h3>
-<p><img alt="bench_1" src="images/bench_0.png" /></p>
-<p>Лучшие результаты также как и в тесте с компиляцией получаются на 2 и 4 потоках.</p>
+<p>Тут я выбрал для сравнения только лучшие результаты.</p>
 <table border="1" class="docutils">
 <colgroup>
-<col width="47%" />
-<col width="53%" />
+<col width="50%" />
+<col width="50%" />
 </colgroup>
 <thead valign="bottom">
-<tr><th class="head">с hyper-threading 4 потока</th>
-<th class="head">без hyper-threading 2 потока</th>
+<tr><th class="head">dp2800 с HT 4 потока</th>
+<th class="head">x5650 с HT 24 потока</th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr><td>10.4 сек.</td>
-<td>12.6 сек.</td>
+<tr><td>10.4 сек</td>
+<td>0.67</td>
 </tr>
 </tbody>
 </table>
+<p>Ускорение в 15.5 раз.</p>
 </div>
 <div class="section" id="hdparm-t-dev-sda">
 <h3>Тест диска hdparm -t /dev/sda</h3>
@@ -248,24 +262,32 @@
 <col width="54%" />
 </colgroup>
 <thead valign="bottom">
-<tr><th class="head">с hyper-threading</th>
-<th class="head">без hyper-threading</th>
+<tr><th class="head">dp2800</th>
+<th class="head">x5650</th>
 </tr>
 </thead>
 <tbody valign="top">
 <tr><td>75.11 Mb/сек.</td>
-<td>73.8 Mb/сек.</td>
+<td>175.6 Mb/сек.</td>
 </tr>
 </tbody>
 </table>
+<p>Ускорение в 2.3 раза.</p>
 </div>
 </div>
 <div class="section" id="id7">
 <h2>Заключение</h2>
-<p>Данный аппарат является очень интересной железкой и им в принципе можно пользоваться до сих пор,
-но уж больно он шумный и иногда предательски фризит, все таки годы берут свое.
-В любом случае этот сервер и результаты тестирования послужат хорошей отправной
-точкой для обзора других моих железок. Я надеюсь, что данная статья была интересной или даже полезной.</p>
+<p>Естественно, новый сервер оказался гораздо мощнее, но только эта мощность распределилась несколько неравномерно.
+Если рассматривать тесты, которые не используют многопоточность, то тут все весьма грустно и мы имеем не более чем трехкратную прибавку
+производительности, если же рассматривать многопоточные тесты, то получается что можно достичь и 25-ти кратного ускорения
+Тесты, которые не зависят напрямую от процессора также не показали ожидаемого 10-ти кратного прироста
+производительности.</p>
+<p>Из всего этого можно сделать вывод, что закон Мура может выполняться только, при рассмотрении системы в целом. Результаты
+подобных тестов могут сильно варьироваться в зависимости от методики тестирования или фаз луны, поэтому, когда в
+следующий раз увидите заявления о том что закон Мура не выполняется или наоборот перевыполняется обратите внимание на то
+что и как мерили. А вообще довольно трудно судить о верности закона Мура на основе всего лишь двух тестов разных машин.
+Вообще все эти тесты я производил для того, чтобы убедится в том, что новый сервак тащит да и просто just for fun, а закон Мура
+был выбран в качестве ориентира.</p>
 </div>
                 </article>
             </aside><!-- /#featured -->
@@ -273,6 +295,31 @@
                     <h1>Other articles</h1>
                     <hr />
                     <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/na-chto-sposoben-server-za-500-rublei-obzor-i-testirovanie.html" rel="bookmark"
+                           title="Permalink to На что способен сервер за 500 рублей. Обзор и тестирование">На что способен сервер за 500 рублей. Обзор и тестирование</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2016-11-29T12:00:00+03:00">
+                Published: Tue 29 November 2016
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/nikolai-shamanovich.html">Николай Шаманович</a>
+        </address>
+<p>In <a href="/category/zhelezo.html">Железо</a>.</p>
+<p>tags: <a href="/tag/hardware.html">hardware</a> <a href="/tag/retro.html">retro</a> <a href="/tag/benchmark.html">benchmark</a> <a href="/tag/xeon.html">xeon</a> <a href="/tag/intel.html">Intel</a> <a href="/tag/linux.html">Linux</a> <a href="/tag/zhelezo.html">железо</a> <a href="/tag/retro.html">ретро</a> <a href="/tag/server.html">сервер</a> </p>
+</footer><!-- /.post-info -->                <p>Попался мне тут в руки один ретросервер. Приобрел я его на всеми любимом авито всего за 500 рублей.
+По сути мне нужен был только корпус, все что было внутри его продавец отдал мне в качестве подарка.</p>
+<p><img alt="server_0" src="images/server_0.jpg" /></p>
+<p>Собственно за 500 рублей я получил только корпус с бекплейтом, материнку, 2 процессора, привод ...</p>
+                <a class="readmore" href="/na-chto-sposoben-server-za-500-rublei-obzor-i-testirovanie.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
 
             <li><article class="hentry">
                 <header>
