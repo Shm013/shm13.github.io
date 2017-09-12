@@ -1,5 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Шаманский блог</title><link href="/" rel="alternate"></link><link href="/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2016-12-11T20:00:00+03:00</updated><entry><title>Сервер в роли рабочей станции. Проверяем закон Мура</title><link href="/server-v-roli-rabochei-stantsii-proveriaem-zakon-mura.html" rel="alternate"></link><updated>2016-12-11T20:00:00+03:00</updated><author><name>Николай Шаманович</name></author><id>tag:,2016-12-11:server-v-roli-rabochei-stantsii-proveriaem-zakon-mura.html</id><summary type="html">&lt;p&gt;Со скоростью достаочно расторопного ленивца собрал наконец свой убер-ПК на основе серверной материнки.
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Шаманский блог</title><link href="/" rel="alternate"></link><link href="/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2017-09-12T18:00:00+03:00</updated><entry><title>Загрузи мою ферму полностью. Автозагрузка майнинг фермы после падения электропитания</title><link href="/zagruzi-moiu-fermu-polnostiu-avtozagruzka-maining-fermy-posle-padeniia-elektropitaniia.html" rel="alternate"></link><published>2017-09-12T18:00:00+03:00</published><updated>2017-09-12T18:00:00+03:00</updated><author><name>Николай Шаманович</name></author><id>tag:None,2017-09-12:/zagruzi-moiu-fermu-polnostiu-avtozagruzka-maining-fermy-posle-padeniia-elektropitaniia.html</id><summary type="html">&lt;p&gt;Для того чтобы добавить майнер в автозарузку нужно положить ярлычек батника в папку Автозагрузка. Все, дело сделано, всем спасибо, можно расходится.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="img_0" src="/images/farmload_0.png" /&gt;&lt;/p&gt;
+&lt;p&gt;А теперь серьезно. Способ описанный выше не подходит в случае если у нас например стоит пароль на вход (как в моем случае).
+Или что будет если майнер затупит по …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Для того чтобы добавить майнер в автозарузку нужно положить ярлычек батника в папку Автозагрузка. Все, дело сделано, всем спасибо, можно расходится.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="img_0" src="/images/farmload_0.png" /&gt;&lt;/p&gt;
+&lt;p&gt;А теперь серьезно. Способ описанный выше не подходит в случае если у нас например стоит пароль на вход (как в моем случае).
+Или что будет если майнер затупит по какой либо причине. Можно конечно городить огород из скриптов и оболочек,
+но зачем если есть такая замечательная вешь как Планировщик Заданий. Он сделает все за нас в лучшем виде.
+Что ж, приступим. Показывать я буду на примере майнера EWBF, но думаю, что должно работать с любым майнером.&lt;/p&gt;
+&lt;p&gt;Для начала нужно настроить биос на автоматическое вклюение после подачи питания, если вы вдруг еще не сделали это.
+Такая функция должна быть почти у всех материнсикх плат. Поищите в BIOS и активируйте нужный параметр.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="img_1" src="/images/farmload_1.jpg" /&gt;&lt;/p&gt;
+&lt;p&gt;Теперь идем в планировщик и создаем там новое задание:&lt;/p&gt;
+&lt;p&gt;&lt;img alt="img_2" src="/images/farmload_2.png" /&gt;&lt;/p&gt;
+&lt;p&gt;Выбираем опцию &amp;quot;выполнять вне зависимости от регистрации&amp;quot; в случае если нам нужно грузиться до логина в систему. Галка с наивысшем приоритетам по сути тут лишняя.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="img_4" src="/images/farmload_4.png" /&gt;&lt;/p&gt;
+&lt;p&gt;Тут выбираем либо при включении, то есть до логина, либо при входе, то есть после логина.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="img_5" src="/images/farmload_5.png" /&gt;&lt;/p&gt;
+&lt;p&gt;В поле программы полный путь до майнера, а в параметры собственно все параметры как в батнике. Не забудьте о параметре --api если такой у майнера есть.
+Очень полезная штука, так как если запускать майнер для незарегистрированных пользователей окна терминала вы не увидите.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="img_6" src="/images/farmload_6.png" /&gt;&lt;/p&gt;
+&lt;p&gt;Тут устанавливаем параметры для перезагрузки, если нужно конечно.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="img_7" src="/images/farmload_7.png" /&gt;&lt;/p&gt;
+&lt;p&gt;После нажатия OK, если был выбран вариант загрузки для незарегистрированных пользователей винда попросит ввести пароль для пользователя.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="img_8" src="/images/farmload_8.png" /&gt;&lt;/p&gt;
+&lt;p&gt;Аналогичным образом можно запускать например MSI Afterburner и прочие утилиты. Для Afterburner-а там уже скорее всего создано задание,
+но его я трогать не советую - приложение скорее всего само будет каждый раз исправлять ваши изменения.
+У меня есть 2 задания - одно оригинальное, срабатывает при входе, другое самодельное - для загрузки без логина.&lt;/p&gt;
+&lt;p&gt;Если пользовались опцией --api, то может потребоваться заглянуть в настройки брандмауэра.&lt;/p&gt;
+</content><category term="mining"></category><category term="windows"></category><category term="zcache"></category><category term="autostart"></category><category term="планировщик"></category></entry><entry><title>Сервер в роли рабочей станции. Проверяем закон Мура</title><link href="/server-v-roli-rabochei-stantsii-proveriaem-zakon-mura.html" rel="alternate"></link><published>2016-12-11T20:00:00+03:00</published><updated>2016-12-11T20:00:00+03:00</updated><author><name>Николай Шаманович</name></author><id>tag:None,2016-12-11:/server-v-roli-rabochei-stantsii-proveriaem-zakon-mura.html</id><summary type="html">&lt;p&gt;Со скоростью достаочно расторопного ленивца собрал наконец свой убер-ПК на основе серверной материнки.
+В этой статье будет небольшой обзор и тест, а также я попробую проверить закон Мура,
+а именно, то что производительность МП удваивается каждые 18 мес.
+Сравнивать я буду свой новый сервер и ретросервер, обзор и тестирование которого …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Со скоростью достаочно расторопного ленивца собрал наконец свой убер-ПК на основе серверной материнки.
 В этой статье будет небольшой обзор и тест, а также я попробую проверить закон Мура,
 а именно, то что производительность МП удваивается каждые 18 мес.
 Сравнивать я буду свой новый сервер и ретросервер, обзор и тестирование которого я делал недавно.
@@ -255,7 +287,12 @@ Hyper-threading.&lt;/p&gt;
 Вообще все эти тесты я производил для того, чтобы убедится в том, что новый сервак тащит да и просто just for fun, а закон Мура
 был выбран в качестве ориентира.&lt;/p&gt;
 &lt;/div&gt;
-</summary><category term="hardware"></category><category term="retro"></category><category term="benchmark"></category><category term="xeon"></category><category term="Intel"></category><category term="SuperMicro"></category><category term="Linux"></category><category term="железо"></category><category term="сервер"></category></entry><entry><title>Прикручиваем Яндеск.Метрику к pelican правильно.</title><link href="/prikruchivaem-iandeskmetriku-k-pelican-pravilno.html" rel="alternate"></link><updated>2016-12-05T23:00:00+03:00</updated><author><name>Николай Шаманович</name></author><id>tag:,2016-12-05:prikruchivaem-iandeskmetriku-k-pelican-pravilno.html</id><summary type="html">&lt;p&gt;Попытался найти в интернете как приделать Метрику к своему блогу,
+</content><category term="hardware"></category><category term="retro"></category><category term="benchmark"></category><category term="xeon"></category><category term="Intel"></category><category term="SuperMicro"></category><category term="Linux"></category><category term="железо"></category><category term="сервер"></category></entry><entry><title>Прикручиваем Яндеск.Метрику к pelican правильно.</title><link href="/prikruchivaem-iandeskmetriku-k-pelican-pravilno.html" rel="alternate"></link><published>2016-12-05T23:00:00+03:00</published><updated>2016-12-05T23:00:00+03:00</updated><author><name>Николай Шаманович</name></author><id>tag:None,2016-12-05:/prikruchivaem-iandeskmetriku-k-pelican-pravilno.html</id><summary type="html">&lt;p&gt;Попытался найти в интернете как приделать Метрику к своему блогу,
+но находил только решения типа — приколоти на гвозди вот тут,
+и так сойдет. Короче решил разобраться и сделать все как надо.&lt;/p&gt;
+&lt;p&gt;Для начала генерируем html код счетчика согласно официальной инструкции:
+&lt;a class="reference external" href="https://yandex.ru/support/metrika/quick-start.xml"&gt;https://yandex.ru/support/metrika/quick-start.xml&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Открываем publishconf.py …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Попытался найти в интернете как приделать Метрику к своему блогу,
 но находил только решения типа — приколоти на гвозди вот тут,
 и так сойдет. Короче решил разобраться и сделать все как надо.&lt;/p&gt;
 &lt;p&gt;Для начала генерируем html код счетчика согласно официальной инструкции:
@@ -319,7 +356,10 @@ make publish &amp;amp;&amp;amp; make serve
 &lt;p&gt;P.S.
 Статистика на сайте обновляется примерно раз в полчаса,
 адблоки могут блокировать работу метрики.&lt;/p&gt;
-</summary><category term="pelican"></category><category term="howto"></category><category term="yandex.metrika"></category><category term="web"></category><category term="Яндекс.Метрика"></category></entry><entry><title>На что способен сервер за 500 рублей. Обзор и тестирование</title><link href="/na-chto-sposoben-server-za-500-rublei-obzor-i-testirovanie.html" rel="alternate"></link><updated>2016-11-29T12:00:00+03:00</updated><author><name>Николай Шаманович</name></author><id>tag:,2016-11-29:na-chto-sposoben-server-za-500-rublei-obzor-i-testirovanie.html</id><summary type="html">&lt;p&gt;Попался мне тут в руки один ретросервер. Приобрел я его на всеми любимом авито всего за 500 рублей.
+</content><category term="pelican"></category><category term="howto"></category><category term="yandex.metrika"></category><category term="web"></category><category term="Яндекс.Метрика"></category></entry><entry><title>На что способен сервер за 500 рублей. Обзор и тестирование</title><link href="/na-chto-sposoben-server-za-500-rublei-obzor-i-testirovanie.html" rel="alternate"></link><published>2016-11-29T12:00:00+03:00</published><updated>2016-11-29T12:00:00+03:00</updated><author><name>Николай Шаманович</name></author><id>tag:None,2016-11-29:/na-chto-sposoben-server-za-500-rublei-obzor-i-testirovanie.html</id><summary type="html">&lt;p&gt;Попался мне тут в руки один ретросервер. Приобрел я его на всеми любимом авито всего за 500 рублей.
+По сути мне нужен был только корпус, все что было внутри его продавец отдал мне в качестве подарка.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="server_0" src="/images/server_0.jpg" /&gt;&lt;/p&gt;
+&lt;p&gt;Собственно за 500 рублей я получил только корпус с бекплейтом, материнку, 2 процессора, привод …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Попался мне тут в руки один ретросервер. Приобрел я его на всеми любимом авито всего за 500 рублей.
 По сути мне нужен был только корпус, все что было внутри его продавец отдал мне в качестве подарка.&lt;/p&gt;
 &lt;p&gt;&lt;img alt="server_0" src="/images/server_0.jpg" /&gt;&lt;/p&gt;
 &lt;p&gt;Собственно за 500 рублей я получил только корпус с бекплейтом, материнку, 2 процессора, привод CD-ROM, флоппик,
@@ -553,4 +593,4 @@ make publish &amp;amp;&amp;amp; make serve
 В любом случае этот сервер и результаты тестирования послужат хорошей отправной
 точкой для обзора других моих железок. Я надеюсь, что данная статья была интересной или даже полезной.&lt;/p&gt;
 &lt;/div&gt;
-</summary><category term="hardware"></category><category term="retro"></category><category term="benchmark"></category><category term="xeon"></category><category term="Intel"></category><category term="Linux"></category><category term="железо"></category><category term="ретро"></category><category term="сервер"></category></entry></feed>
+</content><category term="hardware"></category><category term="retro"></category><category term="benchmark"></category><category term="xeon"></category><category term="Intel"></category><category term="Linux"></category><category term="железо"></category><category term="ретро"></category><category term="сервер"></category></entry></feed>

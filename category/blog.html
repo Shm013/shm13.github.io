@@ -21,7 +21,57 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="/server-v-roli-rabochei-stantsii-proveriaem-zakon-mura.html">Сервер в роли рабочей станции. Проверяем закон Мура</a></h1>
+                    <h1 class="entry-title"><a href="/zagruzi-moiu-fermu-polnostiu-avtozagruzka-maining-fermy-posle-padeniia-elektropitaniia.html">Загрузи мою ферму полностью. Автозагрузка майнинг фермы после падения электропитания</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2017-09-12T18:00:00+03:00">
+                Published: Tue 12 September 2017
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/nikolai-shamanovich.html">Николай Шаманович</a>
+        </address>
+<p>In <a href="/category/blog.html">Блог</a>.</p>
+<p>tags: <a href="/tag/mining.html">mining</a> <a href="/tag/windows.html">windows</a> <a href="/tag/zcache.html">zcache</a> <a href="/tag/autostart.html">autostart</a> <a href="/tag/planirovshchik.html">планировщик</a> </p>
+</footer><!-- /.post-info --><p>Для того чтобы добавить майнер в автозарузку нужно положить ярлычек батника в папку Автозагрузка. Все, дело сделано, всем спасибо, можно расходится.</p>
+<p><img alt="img_0" src="/images/farmload_0.png" /></p>
+<p>А теперь серьезно. Способ описанный выше не подходит в случае если у нас например стоит пароль на вход (как в моем случае).
+Или что будет если майнер затупит по какой либо причине. Можно конечно городить огород из скриптов и оболочек,
+но зачем если есть такая замечательная вешь как Планировщик Заданий. Он сделает все за нас в лучшем виде.
+Что ж, приступим. Показывать я буду на примере майнера EWBF, но думаю, что должно работать с любым майнером.</p>
+<p>Для начала нужно настроить биос на автоматическое вклюение после подачи питания, если вы вдруг еще не сделали это.
+Такая функция должна быть почти у всех материнсикх плат. Поищите в BIOS и активируйте нужный параметр.</p>
+<p><img alt="img_1" src="/images/farmload_1.jpg" /></p>
+<p>Теперь идем в планировщик и создаем там новое задание:</p>
+<p><img alt="img_2" src="/images/farmload_2.png" /></p>
+<p>Выбираем опцию &quot;выполнять вне зависимости от регистрации&quot; в случае если нам нужно грузиться до логина в систему. Галка с наивысшем приоритетам по сути тут лишняя.</p>
+<p><img alt="img_4" src="/images/farmload_4.png" /></p>
+<p>Тут выбираем либо при включении, то есть до логина, либо при входе, то есть после логина.</p>
+<p><img alt="img_5" src="/images/farmload_5.png" /></p>
+<p>В поле программы полный путь до майнера, а в параметры собственно все параметры как в батнике. Не забудьте о параметре --api если такой у майнера есть.
+Очень полезная штука, так как если запускать майнер для незарегистрированных пользователей окна терминала вы не увидите.</p>
+<p><img alt="img_6" src="/images/farmload_6.png" /></p>
+<p>Тут устанавливаем параметры для перезагрузки, если нужно конечно.</p>
+<p><img alt="img_7" src="/images/farmload_7.png" /></p>
+<p>После нажатия OK, если был выбран вариант загрузки для незарегистрированных пользователей винда попросит ввести пароль для пользователя.</p>
+<p><img alt="img_8" src="/images/farmload_8.png" /></p>
+<p>Аналогичным образом можно запускать например MSI Afterburner и прочие утилиты. Для Afterburner-а там уже скорее всего создано задание,
+но его я трогать не советую - приложение скорее всего само будет каждый раз исправлять ваши изменения.
+У меня есть 2 задания - одно оригинальное, срабатывает при входе, другое самодельное - для загрузки без логина.</p>
+<p>Если пользовались опцией --api, то может потребоваться заглянуть в настройки брандмауэра.</p>
+                </article>
+            </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/server-v-roli-rabochei-stantsii-proveriaem-zakon-mura.html" rel="bookmark"
+                           title="Permalink to Сервер в роли рабочей станции. Проверяем закон Мура">Сервер в роли рабочей станции. Проверяем закон Мура</a></h1>
+                </header>
+
+                <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2016-12-11T20:00:00+03:00">
                 Published: Sun 11 December 2016
@@ -32,268 +82,13 @@
         </address>
 <p>In <a href="/category/blog.html">Блог</a>.</p>
 <p>tags: <a href="/tag/hardware.html">hardware</a> <a href="/tag/retro.html">retro</a> <a href="/tag/benchmark.html">benchmark</a> <a href="/tag/xeon.html">xeon</a> <a href="/tag/intel.html">Intel</a> <a href="/tag/supermicro.html">SuperMicro</a> <a href="/tag/linux.html">Linux</a> <a href="/tag/zhelezo.html">железо</a> <a href="/tag/server.html">сервер</a> </p>
-</footer><!-- /.post-info --><p>Со скоростью достаочно расторопного ленивца собрал наконец свой убер-ПК на основе серверной материнки.
+</footer><!-- /.post-info -->                <p>Со скоростью достаочно расторопного ленивца собрал наконец свой убер-ПК на основе серверной материнки.
 В этой статье будет небольшой обзор и тест, а также я попробую проверить закон Мура,
 а именно, то что производительность МП удваивается каждые 18 мес.
-Сравнивать я буду свой новый сервер и ретросервер, обзор и тестирование которого я делал недавно.
-Почитать про ретросервер можно <a class="reference external" href="/na-chto-sposoben-server-za-500-rublei-obzor-i-testirovanie.html">тут</a>.</p>
-<p><img alt="server_5" src="/images/server_5.jpg" /></p>
-<p>Я считаю что эти сервера идеально подходят для того чтобы проверить закон Мура. Оба сервера являются средемощными
-для своего времени, являются так сказать лучшими по показателю цена/качество. Также у обоих машин
-явный перебор по объему памяти для моих тестов.</p>
-<p>Собственно характеристики нового сервера такие:</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="40%" />
-<col width="60%" />
-</colgroup>
-<tbody valign="top">
-<tr><td>Материская плата</td>
-<td>SuperMicro X8DTL-i</td>
-</tr>
-<tr><td>Процессор</td>
-<td>2 x Intel Xeon X5650</td>
-</tr>
-<tr><td>Память</td>
-<td>4 x 8Gb Hynix DDR3-1333Mgz</td>
-</tr>
-<tr><td>Жесткйи диск</td>
-<td>WD SATA-III 1Tb WD10EZEX Blue</td>
-</tr>
-</tbody>
-</table>
-<p>Корпус остался от ретросервера, также поставил звукавуху SB Live! и видео Radeon HD 4650 от ASUS.</p>
-<p>Плата пришла ко мне с небольшими дефектам, была немного погнута ножка на сокете и были всякие разводы,
-остатки термопасты и прочие следы эксплуатации, хотя продавец на Ибее утверждал, что плата ни разу не
-запускалась и все такое.</p>
-<p><img alt="server_6" src="/images/server_6.jpg" /></p>
-<p>В любом случае досталась мне опять таки очень дешево и я особо не стал разбираться. Благо плата
-пришла в хорошей упаковке и в работе никаких нареканий не вызывает. Но продавцу все-равно дизлайк.</p>
-<div class="section" id="id3">
-<h2>Тесты</h2>
-<p>Будем считать что ретросервер на intel se7520bd2(dp2800) был выпушен в 2005 году
-(точной информации по выходу платы не нашел, взял дату самого старого драйвера с сайта интел),
-а новый сервер на SuperMicro X8DTL-i(x5650) в 2010 (тоже дата с сайта интел, только взята для процессора X5650)</p>
-<p>Итого примерная разница в возрасте 5 лет или 60 месяцев, и согласно закону Мура производительность должна вырасти
-в 2^3.33 = 10 раз. Так как я не знаю точного возраста железа, некоторые отклонения вполне допустимы.</p>
-<p>Тестирование я проводил по такой же схеме как и в статье про ретросервер.</p>
-<div class="section" id="id4">
-<h3>Список тестов:</h3>
-<ol class="arabic simple" start="0">
-<li>Тест архиватора bzip2. Архивация установочника дебиана.</li>
-<li>Тест архиватора pbzip2. Архивация установочника дебиана.</li>
-<li>Тест архиватора zpaq. Архивация установочника дебиана.</li>
-<li>Тест компиляции. Компиляция ядра Линукс на дефолтном конфиге.</li>
-<li>Тест LinPack (Intel® MKL Benchmarks).</li>
-<li>Тест sysbench память</li>
-<li>Тест sysbench процессор</li>
-<li>Тест диска hdparm -t /dev/sda</li>
-</ol>
-</div>
-<div class="section" id="bzip2">
-<h3>Тест архиватора bzip2. Архивация установочника дебиана.</h3>
-<table border="1" class="docutils">
-<colgroup>
-<col width="18%" />
-<col width="38%" />
-<col width="44%" />
-</colgroup>
-<thead valign="bottom">
-<tr><th class="head">Сервер</th>
-<th class="head">с Hyper-threading</th>
-<th class="head">без Hyper-threading</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr><td>dp2800</td>
-<td>192.14 сек.</td>
-<td>192.47 сек.</td>
-</tr>
-<tr><td>x5650</td>
-<td>122.33 сек.</td>
-<td>130.22 сек.</td>
-</tr>
-</tbody>
-</table>
-<p>Как и в случае с ретросервером Hypr-threading совершенно не влияет на тест в однопоточном bzib2.</p>
-<p>Если сравнивать результаты двух серверов, то получаем ускорение всего лишь в 1.5 раза. Собственно это можно объяснить тем, что частоты
-у процессоров приблизительно одинаковые, а вот количество ядер отличается на порядок, следовательно тесты, в которых
-задействован параллелизм будут более показательными.</p>
-</div>
-<div class="section" id="pbzip2">
-<h3>Тест архиватора pbzip2. Архивация установочника дебиана.</h3>
-<table border="1" class="docutils">
-<colgroup>
-<col width="16%" />
-<col width="39%" />
-<col width="45%" />
-</colgroup>
-<thead valign="bottom">
-<tr><th class="head">Сервер</th>
-<th class="head">с hyper-threading</th>
-<th class="head">без hyper-threading</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr><td>dp2800</td>
-<td>85.57 сек.</td>
-<td>101.74 сек.</td>
-</tr>
-<tr><td>x5650</td>
-<td>8.97</td>
-<td>10.9</td>
-</tr>
-</tbody>
-</table>
-<p>Этот тест показывает то самое ускорение в 10 раз, что собственно не может не радовать. Hyper-threading тут в очередной раз показывает
-свою полезность.</p>
-</div>
-<div class="section" id="zpaq">
-<h3>Тест архиватора zpaq. Архивация установочника дебиана.</h3>
-<table border="1" class="docutils">
-<colgroup>
-<col width="16%" />
-<col width="39%" />
-<col width="45%" />
-</colgroup>
-<thead valign="bottom">
-<tr><th class="head">Сервер</th>
-<th class="head">с hyper-threading</th>
-<th class="head">без hyper-threading</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr><td>dp2800</td>
-<td>4024 сек.</td>
-<td>4083 сек.</td>
-</tr>
-<tr><td>x5650</td>
-<td>1566 сек.</td>
-<td>1561 сек.</td>
-</tr>
-</tbody>
-</table>
-<p>Снова последовательный тест, но в данном случае получаем ускорение в 2.5 раза, что лучше, чем в тесте bzip2, но все же до 10
-сильно не дотягивает.</p>
-</div>
-<div class="section" id="id5">
-<h3>Тест компиляции. Компиляция ядра Линукс на дефолтном конфиге.</h3>
-<p><img alt="bench_2" src="/images/bench_2.png" /></p>
-<p>Лучший результат достигается на 24 потоках с включеным Hyper-threading - 77.54 сек. Если сравнивать с лучшим результатом ретросервера,
-то получается ускорение в 14.8 раз.</p>
-</div>
-<div class="section" id="linpack-intel-mkl-benchmarks">
-<h3>Тест LinPack (Intel® MKL Benchmarks).</h3>
-<p>Наверное это будет самый показательный тест. Опять только бинарный тест, но я вроде понял что этот тест просто не работает с ядрами
-Hyper-threading.</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="16%" />
-<col width="39%" />
-<col width="45%" />
-</colgroup>
-<thead valign="bottom">
-<tr><th class="head">Сервер</th>
-<th class="head">с hyper-threading</th>
-<th class="head">без hyper-threading</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr><td>dp2800</td>
-<td>4.972 Gflops</td>
-<td>5.216 Gflops</td>
-</tr>
-<tr><td>x5650</td>
-<td>122.89 Gflops</td>
-<td>123.05 Gflops</td>
-</tr>
-</tbody>
-</table>
-<p>Тут получается ускорение аж в 23.6 раза! Hyper-threading на результаты нового сервера не влияет.</p>
-</div>
-<div class="section" id="sysbench">
-<h3>Тест sysbench память</h3>
-<p>Тут проверять Hyper-threading нет смылсла.</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="46%" />
-<col width="54%" />
-</colgroup>
-<thead valign="bottom">
-<tr><th class="head">dp2800</th>
-<th class="head">x5650</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr><td>1095 Mb/сек.</td>
-<td>1832 Mb/сек.</td>
-</tr>
-</tbody>
-</table>
-<p>Получаем ускорение в 1.7 раз.</p>
-</div>
-<div class="section" id="id6">
-<h3>Тест sysbench процессор</h3>
-<p>Тут я выбрал для сравнения только лучшие результаты.</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<thead valign="bottom">
-<tr><th class="head">dp2800 с HT 4 потока</th>
-<th class="head">x5650 с HT 24 потока</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr><td>10.4 сек</td>
-<td>0.67</td>
-</tr>
-</tbody>
-</table>
-<p>Ускорение в 15.5 раз.</p>
-</div>
-<div class="section" id="hdparm-t-dev-sda">
-<h3>Тест диска hdparm -t /dev/sda</h3>
-<table border="1" class="docutils">
-<colgroup>
-<col width="46%" />
-<col width="54%" />
-</colgroup>
-<thead valign="bottom">
-<tr><th class="head">dp2800</th>
-<th class="head">x5650</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr><td>75.11 Mb/сек.</td>
-<td>175.6 Mb/сек.</td>
-</tr>
-</tbody>
-</table>
-<p>Ускорение в 2.3 раза.</p>
-</div>
-</div>
-<div class="section" id="id7">
-<h2>Заключение</h2>
-<p>Естественно, новый сервер оказался гораздо мощнее, но только эта мощность распределилась несколько неравномерно.
-Если рассматривать тесты, которые не используют многопоточность, то тут все весьма грустно и мы имеем не более чем трехкратную прибавку
-производительности, если же рассматривать многопоточные тесты, то получается что можно достичь и 25-ти кратного ускорения
-Тесты, которые не зависят напрямую от процессора также не показали ожидаемого 10-ти кратного прироста
-производительности.</p>
-<p>Из всего этого можно сделать вывод, что закон Мура может выполняться только, при рассмотрении системы в целом. Результаты
-подобных тестов могут сильно варьироваться в зависимости от методики тестирования или фаз луны, поэтому, когда в
-следующий раз увидите заявления о том что закон Мура не выполняется или наоборот перевыполняется обратите внимание на то
-что и как мерили. А вообще довольно трудно судить о верности закона Мура на основе всего лишь двух тестов разных машин.
-Вообще все эти тесты я производил для того, чтобы убедится в том, что новый сервак тащит да и просто just for fun, а закон Мура
-был выбран в качестве ориентира.</p>
-</div>
-                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
+Сравнивать я буду свой новый сервер и ретросервер, обзор и тестирование которого …</p>
+                <a class="readmore" href="/server-v-roli-rabochei-stantsii-proveriaem-zakon-mura.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
 
             <li><article class="hentry">
                 <header>
@@ -317,7 +112,7 @@ Hyper-threading.</p>
 и так сойдет. Короче решил разобраться и сделать все как надо.</p>
 <p>Для начала генерируем html код счетчика согласно официальной инструкции:
 <a class="reference external" href="https://yandex.ru/support/metrika/quick-start.xml">https://yandex.ru/support/metrika/quick-start.xml</a></p>
-<p>Открываем publishconf.py ...</p>
+<p>Открываем publishconf.py …</p>
                 <a class="readmore" href="/prikruchivaem-iandeskmetriku-k-pelican-pravilno.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
@@ -342,7 +137,7 @@ Hyper-threading.</p>
 </footer><!-- /.post-info -->                <p>Попался мне тут в руки один ретросервер. Приобрел я его на всеми любимом авито всего за 500 рублей.
 По сути мне нужен был только корпус, все что было внутри его продавец отдал мне в качестве подарка.</p>
 <p><img alt="server_0" src="/images/server_0.jpg" /></p>
-<p>Собственно за 500 рублей я получил только корпус с бекплейтом, материнку, 2 процессора, привод ...</p>
+<p>Собственно за 500 рублей я получил только корпус с бекплейтом, материнку, 2 процессора, привод …</p>
                 <a class="readmore" href="/na-chto-sposoben-server-za-500-rublei-obzor-i-testirovanie.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
