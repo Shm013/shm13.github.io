@@ -28,6 +28,12 @@
 но его я трогать не советую - приложение скорее всего само будет каждый раз исправлять ваши изменения.
 У меня есть 2 задания - одно оригинальное, срабатывает при входе, другое самодельное - для загрузки без логина.&lt;/p&gt;
 &lt;p&gt;Если пользовались опцией --api, то может потребоваться заглянуть в настройки брандмауэра.&lt;/p&gt;
+&lt;p&gt;P.S.&lt;/p&gt;
+&lt;p&gt;Чтобы убрать запуск средства восстанвления при загрузки нужно от Администратора выполнить:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+bcdedit /set recovery enabled no
+bcdedit /set bootstatuspolicy ignoreallfailures
+&lt;/pre&gt;
 </content><category term="mining"></category><category term="windows"></category><category term="zcache"></category><category term="autostart"></category><category term="планировщик"></category></entry><entry><title>Сервер в роли рабочей станции. Проверяем закон Мура</title><link href="/server-v-roli-rabochei-stantsii-proveriaem-zakon-mura.html" rel="alternate"></link><published>2016-12-11T20:00:00+03:00</published><updated>2016-12-11T20:00:00+03:00</updated><author><name>Николай Шаманович</name></author><id>tag:None,2016-12-11:/server-v-roli-rabochei-stantsii-proveriaem-zakon-mura.html</id><summary type="html">&lt;p&gt;Со скоростью достаочно расторопного ленивца собрал наконец свой убер-ПК на основе серверной материнки.
 В этой статье будет небольшой обзор и тест, а также я попробую проверить закон Мура,
 а именно, то что производительность МП удваивается каждые 18 мес.
